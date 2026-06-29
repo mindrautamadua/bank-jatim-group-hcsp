@@ -8,60 +8,86 @@ declare global {
   var _hcspWarmed: boolean | undefined
 }
 
-// Multi-tenant routing designed for a TRANSACTION POOLER (e.g. pgbouncer in
-// transaction mode / Supabase transaction pooler). Each tenant lives in its own
+// Multi-tenant routing on a SINGLE shared pool. Each tenant lives in its own
 // Postgres schema, selected via search_path.
 //
-// Key constraint of transaction pooling: a server connection is only held for
-// the duration of ONE transaction, so session-level state does NOT persist
-// between statements. A bare `SET search_path` would land on a different backend
-// than the following query. Therefore we set the path with `SET LOCAL` INSIDE
-// the same transaction as the query — guaranteeing both run on one backend and
-// that the setting auto-resets at COMMIT (no leakage to the next borrower).
+// The DB endpoint (:1301) is a SESSION/DIRECT connection — `SET search_path`
+// persists for the life of a connection. So we set it ONCE per physical
+// connection (tagged with __hcspPath) and only re-issue it when a reused
+// connection needs a different schema. That keeps it at ~1 round trip per query
+// (≈20ms) instead of wrapping every query in BEGIN/SET LOCAL/COMMIT (≈64ms,
+// which made a 12-query dashboard take seconds).
 //
-// node-pg uses unnamed prepared statements (no cross-transaction named
-// statements), so parameterized queries are transaction-pooler safe.
+// If you ever point DATABASE_URL at a TRANSACTION pooler (pgbouncer txn mode),
+// per-connection state is unsafe — set DB_TX_POOLER=1 to switch to the
+// transaction-scoped variant (slower, but correct under transaction pooling).
 //
-// `public` reads (auth, user-admin) need no SET: it is always in the default
-// search_path, so global tenant/app_user tables resolve without a transaction.
+// Connections are kept warm (idle 0 in dev) and pre-warmed; opening one to this
+// remote server is ~0.5s while a warm query is ~20ms.
 const isDev = process.env.NODE_ENV !== 'production'
+const TX_POOLER = process.env.DB_TX_POOLER === '1'
 
 const pool =
   global._hcspPool ??
   new Pool({
     connectionString: process.env.DATABASE_URL,
-    // App pool is small; the transaction pooler multiplexes onto few backends.
-    max: isDev ? 8 : 10,
-    idleTimeoutMillis: 30_000,
+    max: isDev ? 8 : 6,
+    idleTimeoutMillis: isDev ? 0 : 30_000,
     keepAlive: true,
     keepAliveInitialDelayMillis: 5_000,
     connectionTimeoutMillis: 10_000,
   })
 if (isDev) global._hcspPool = pool
 
-// Pre-warm a couple of connections once (non-blocking).
-if (!global._hcspWarmed) {
-  global._hcspWarmed = true
-  const n = isDev ? 3 : 2
-  void Promise.allSettled(Array.from({ length: n }, () => pool.query('SELECT 1')))
+function pathFor(schema: string | null): string {
+  return schema ? `"${schema}", public` : 'public'
 }
 
-// Run `fn` inside one transaction with search_path scoped to `schema` (or the
-// default public path when schema is null).
-async function inSchemaTx<T>(schema: string | null, fn: (c: PoolClient) => Promise<T>): Promise<T> {
-  const client = await pool.connect()
+type TaggedClient = PoolClient & { __hcspPath?: string }
+
+// Ensure the checked-out connection's search_path matches `schema`.
+// Session/direct: set once per connection (cached). Transaction pooler: caller
+// must use a transaction (see runTransaction); this no-ops there.
+async function ensurePath(client: TaggedClient, schema: string | null) {
+  if (TX_POOLER) return
+  const want = pathFor(schema)
+  if (client.__hcspPath !== want) {
+    await client.query(`SET search_path TO ${want}`)
+    client.__hcspPath = want
+  }
+}
+
+async function withClient<T>(schema: string | null, fn: (c: PoolClient) => Promise<T>): Promise<T> {
+  const client = (await pool.connect()) as TaggedClient
   try {
-    await client.query('BEGIN')
-    if (schema) await client.query(`SET LOCAL search_path TO "${schema}", public`)
-    const result = await fn(client)
-    await client.query('COMMIT')
-    return result
-  } catch (e) {
-    try { await client.query('ROLLBACK') } catch { /* abaikan kegagalan rollback */ }
-    throw e
+    await ensurePath(client, schema)
+    return await fn(client)
   } finally {
     client.release()
   }
+}
+
+// Pre-warm the pool SEQUENTIALLY (non-blocking) at boot. This remote server is
+// fine at ~50ms/connect one-at-a-time, but a burst of concurrent connects (e.g.
+// a dashboard firing 12 parallel queries onto a cold pool) triggers a
+// connection storm that can take tens of seconds. By establishing `target`
+// connections up front, one by one, and keeping them warm (idle 0 in dev),
+// later pages reuse warm connections and never storm.
+async function prewarm(target: number) {
+  const held: PoolClient[] = []
+  try {
+    for (let i = 0; i < target; i++) {
+      const c = await pool.connect()
+      try { await c.query('SELECT 1') } catch { /* abaikan */ }
+      held.push(c)
+    }
+  } catch { /* abaikan kegagalan pemanasan */ } finally {
+    held.forEach((c) => c.release())
+  }
+}
+if (!global._hcspWarmed) {
+  global._hcspWarmed = true
+  void prewarm(isDev ? 8 : 6)
 }
 
 // ---- Tenant-scoped access (routes to the active tenant's schema) ----------
@@ -71,36 +97,45 @@ export async function query<T = Record<string, unknown>>(
   params: unknown[] = []
 ): Promise<T[]> {
   const schema = await resolveActiveSchema()
-  return inSchemaTx(schema, async (c) => (await c.query(text, params)).rows as T[])
+  return withClient(schema, async (c) => (await c.query(text, params)).rows as T[])
 }
 
 // Query terikat satu koneksi (dipakai di dalam withTransaction).
 export type TxQuery = <T = Record<string, unknown>>(text: string, params?: unknown[]) => Promise<T[]>
 
+async function runTransaction<T>(schema: string | null, fn: (q: TxQuery) => Promise<T>): Promise<T> {
+  return withClient(schema, async (client) => {
+    try {
+      await client.query('BEGIN')
+      // Under transaction pooling, scope the path to this transaction.
+      if (TX_POOLER && schema) await client.query(`SET LOCAL search_path TO ${pathFor(schema)}`)
+      const q: TxQuery = async (text, params = []) => (await client.query(text, params)).rows
+      const result = await fn(q)
+      await client.query('COMMIT')
+      return result
+    } catch (e) {
+      try { await client.query('ROLLBACK') } catch { /* abaikan kegagalan rollback */ }
+      throw e
+    }
+  })
+}
+
 // Jalankan beberapa statement dalam satu transaksi pada schema tenant aktif.
 export async function withTransaction<T>(fn: (q: TxQuery) => Promise<T>): Promise<T> {
   const schema = await resolveActiveSchema()
-  return inSchemaTx(schema, async (client) => {
-    const q: TxQuery = async (text, params = []) => (await client.query(text, params)).rows
-    return fn(q)
-  })
+  return runTransaction(schema, fn)
 }
 
 // ---- Global access (always the `public` schema) ---------------------------
 // Used by auth & user-admin: tenant + app_user are shared across all banks.
-// public is in the default search_path, so no transaction/SET is needed.
 
 export async function publicQuery<T = Record<string, unknown>>(
   text: string,
   params: unknown[] = []
 ): Promise<T[]> {
-  const res = await pool.query(text, params)
-  return res.rows as T[]
+  return withClient(null, async (c) => (await c.query(text, params)).rows as T[])
 }
 
 export async function publicTransaction<T>(fn: (q: TxQuery) => Promise<T>): Promise<T> {
-  return inSchemaTx(null, async (client) => {
-    const q: TxQuery = async (text, params = []) => (await client.query(text, params)).rows
-    return fn(q)
-  })
+  return runTransaction(null, fn)
 }

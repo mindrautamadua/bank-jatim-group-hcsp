@@ -39,3 +39,6 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Daftar kredensial (rahasia, jangan di-commit)
+daftar_akses.md
