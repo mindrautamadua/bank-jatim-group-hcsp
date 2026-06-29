@@ -1,0 +1,1984 @@
+{
+  "sasaran": [
+    {
+      "kode": "F.1",
+      "nama": "Peningkatan Produktivitas Pegawai",
+      "perspektif": "F",
+      "jenis": "lag",
+      "key_program": "Mengevaluasi produktivitas pegawai (rasio laba sebelum pajak per pegawai & per biaya tenaga kerja) dan menerapkan upaya peningkatan",
+      "cadence": "Minimal setiap 3 bulan"
+    },
+    {
+      "kode": "F.2",
+      "nama": "Meningkatkan Porsi Imbalan Berbasis Kinerja",
+      "perspektif": "F",
+      "jenis": "lag",
+      "key_program": "Menata ulang sistem imbalan berbasis kinerja dan mengevaluasi korelasinya dengan produktivitas/kinerja pegawai",
+      "cadence": "Minimal 1 kali setahun"
+    },
+    {
+      "kode": "F.3",
+      "nama": "Optimalisasi Anggaran HCM untuk Pengembangan Kualitas Pegawai",
+      "perspektif": "F",
+      "jenis": "lag",
+      "key_program": "Mengalokasikan dan mengevaluasi optimalisasi anggaran pengembangan kualitas pegawai",
+      "cadence": "Tahunan"
+    },
+    {
+      "kode": "KS.1",
+      "nama": "Peningkatan Engagement Pegawai",
+      "perspektif": "KS",
+      "jenis": "lag",
+      "key_program": "Survei engagement pegawai, analisis dan penerapan upaya peningkatan engagement secara berkelanjutan",
+      "cadence": "Survei minimal 1 kali setahun; evaluasi minimal setiap 3 bulan"
+    },
+    {
+      "kode": "KS.2",
+      "nama": "Terpenuhinya Kebutuhan Future Leader (Talent Pool) untuk Setiap Posisi Jabatan Struktural dan Jabatan Kunci",
+      "perspektif": "KS",
+      "jenis": "lag",
+      "key_program": "Mengevaluasi tingkat keterpenuhan talent pool pada program suksesi dan menerapkan upaya peningkatan",
+      "cadence": "Minimal 1 kali setahun"
+    },
+    {
+      "kode": "KS.3",
+      "nama": "Meningkatkan Kompetensi & Potensi Pegawai Khususnya Talent Pool",
+      "perspektif": "KS",
+      "jenis": "lag",
+      "key_program": "Mengevaluasi penyelesaian IDP talent pool dan rencana pembelajaran tiga bulanan, menerapkan upaya peningkatan",
+      "cadence": "IDP minimal setiap 6 bulan; rencana pembelajaran minimal setiap 3 bulan"
+    },
+    {
+      "kode": "KS.4",
+      "nama": "Meningkatkan Kinerja Pegawai",
+      "perspektif": "KS",
+      "jenis": "lag",
+      "key_program": "Mengevaluasi pencapaian target KPI pegawai khususnya jabatan struktural & kunci dan menerapkan upaya peningkatan",
+      "cadence": "Minimal setiap 6 bulan"
+    },
+    {
+      "kode": "KS.5",
+      "nama": "Memperkuat Budaya Perusahaan SIPIL",
+      "perspektif": "KS",
+      "jenis": "lag",
+      "key_program": "Survei Indeks Budaya Perusahaan dan Indeks Basic Leadership serta penguatan berkesinambungan",
+      "cadence": "Survei minimal 1 kali setahun"
+    },
+    {
+      "kode": "PBI.1",
+      "nama": "Meningkatkan Efektivitas & Kematangan HCM",
+      "perspektif": "PBI",
+      "jenis": "maturity",
+      "key_program": "Menghitung Indeks Tingkat Kematangan HCM",
+      "cadence": "Minimal 1 kali setahun"
+    },
+    {
+      "kode": "PBI.1.a",
+      "nama": "Meningkatkan Efektivitas & Kematangan HCM Strategic",
+      "perspektif": "PBI",
+      "jenis": "maturity",
+      "key_program": "Menghitung Indeks Tingkat Kematangan HCM Strategic",
+      "cadence": "Minimal 1 kali setahun"
+    },
+    {
+      "kode": "PBI.1.b",
+      "nama": "Meningkatkan Efektivitas & Kematangan HCM Services",
+      "perspektif": "PBI",
+      "jenis": "maturity",
+      "key_program": "Menghitung Indeks Tingkat Kematangan HCM Services",
+      "cadence": "Minimal 1 kali setahun"
+    },
+    {
+      "kode": "PBI.1.a.1",
+      "nama": "Meningkatkan Efektivitas dan Kematangan Manajemen Pengembangan Organisasi",
+      "perspektif": "PBI",
+      "jenis": "maturity",
+      "key_program": "Memastikan bagan struktur organisasi & kebijakan job grading disahkan dan terimplementasi serta evaluasi berkala efektivitasnya",
+      "cadence": "Evaluasi minimal 1 kali setahun"
+    },
+    {
+      "kode": "PBI.1.a.2",
+      "nama": "Meningkatkan Efektivitas dan Kematangan Manajemen Perencanaan Kebutuhan Pegawai",
+      "perspektif": "PBI",
+      "jenis": "maturity",
+      "key_program": "Menyusun peta jabatan dan rencana kebutuhan pegawai 5 tahun berbasis analisa jabatan & beban kerja serta evaluasi berkala",
+      "cadence": "Evaluasi minimal 1 kali setahun"
+    },
+    {
+      "kode": "PBI.1.a.3",
+      "nama": "Meningkatkan Efektivitas dan Kematangan Manajemen Peningkatan Kompetensi",
+      "perspektif": "PBI",
+      "jenis": "maturity",
+      "key_program": "Membangun arsitektur & infrastruktur pembelajaran, program structured/social/experiential learning, dan evaluasi efektivitas pembelajaran",
+      "cadence": "Evaluasi minimal 1 kali setahun"
+    },
+    {
+      "kode": "PBI.1.a.4",
+      "nama": "Meningkatkan Efektivitas dan Kematangan Manajemen Pengembangan Pegawai Bertalenta (Talent Management)",
+      "perspektif": "PBI",
+      "jenis": "maturity",
+      "key_program": "Mengelola program pengembangan pegawai bertalenta dan evaluasi berkala efektivitasnya",
+      "cadence": "Evaluasi minimal 1 kali setahun"
+    },
+    {
+      "kode": "PBI.1.a.5",
+      "nama": "Meningkatkan Efektivitas dan Kematangan Manajemen Pengembangan Karir",
+      "perspektif": "PBI",
+      "jenis": "maturity",
+      "key_program": "Mengelola manajemen pengembangan karir dan evaluasi berkala efektivitasnya",
+      "cadence": "Evaluasi minimal 1 kali setahun"
+    },
+    {
+      "kode": "PBI.1.a.6",
+      "nama": "Meningkatkan Efektivitas dan Kematangan Manajemen Budaya Perusahaan",
+      "perspektif": "PBI",
+      "jenis": "maturity",
+      "key_program": "Mengelola sistem manajemen budaya perusahaan (change agent) dan evaluasi berkala efektivitasnya",
+      "cadence": "Evaluasi minimal 1 kali setahun"
+    },
+    {
+      "kode": "PBI.1.b.1",
+      "nama": "Meningkatkan Efektivitas dan Kematangan Manajemen Rekrutmen dan Seleksi",
+      "perspektif": "PBI",
+      "jenis": "maturity",
+      "key_program": "Meningkatkan efektivitas pelaksanaan rekrutmen, seleksi dan orientasi jabatan sesuai kebijakan internal",
+      "cadence": "Evaluasi minimal 1 kali setahun"
+    },
+    {
+      "kode": "PBI.1.b.2",
+      "nama": "Meningkatkan Efektivitas dan Kematangan Manajemen Kinerja",
+      "perspektif": "PBI",
+      "jenis": "maturity",
+      "key_program": "Menyempurnakan sistem manajemen kinerja dengan kontribusi aspek perilaku maksimum 30% dan evaluasi berkala",
+      "cadence": "Evaluasi minimal 1 kali setahun"
+    },
+    {
+      "kode": "PBI.1.b.3",
+      "nama": "Meningkatkan Efektivitas dan Kematangan Manajemen Remunerasi (Penggajian & Penghargaan)",
+      "perspektif": "PBI",
+      "jenis": "maturity",
+      "key_program": "Menyempurnakan sistem remunerasi dan evaluasi berkala efektivitasnya",
+      "cadence": "Evaluasi minimal 1 kali setahun"
+    },
+    {
+      "kode": "PBI.1.b.4",
+      "nama": "Meningkatkan Efektivitas dan Kematangan Manajemen Perlindungan, Kepuasan, dan Keterlekatan (Engagement) Pegawai",
+      "perspektif": "PBI",
+      "jenis": "maturity",
+      "key_program": "Mengelola perlindungan, pelayanan, kepuasan & keterlekatan pegawai serta evaluasi berkala",
+      "cadence": "Evaluasi minimal 1 kali setahun"
+    },
+    {
+      "kode": "PBI.1.b.5",
+      "nama": "Meningkatkan Efektivitas dan Kematangan Manajemen Hubungan Industrial",
+      "perspektif": "PBI",
+      "jenis": "maturity",
+      "key_program": "Meningkatkan kualitas proses dan hasil penanganan keluhan pegawai serta evaluasi berkala",
+      "cadence": "Evaluasi minimal 1 kali setahun"
+    },
+    {
+      "kode": "PP.1",
+      "nama": "Meningkatkan “Readiness” HCM Specialist",
+      "perspektif": "PP",
+      "jenis": "lead",
+      "key_program": "Mengidentifikasi kebutuhan & kandidat HCM Specialist, merumuskan dan mengimplementasikan IDP, asesmen readiness level",
+      "cadence": "Asesmen & evaluasi minimal 1 kali setahun"
+    },
+    {
+      "kode": "PP.2",
+      "nama": "Memperkuat Leadership & Budaya Kerja Tim HCM",
+      "perspektif": "PP",
+      "jenis": "lead",
+      "key_program": "Menyiapkan sistem manajemen budaya Tim HCM (Change Leader & Change Agent) dan program Basic Leadership 70:20:10",
+      "cadence": "Evaluasi minimal 1 kali setahun"
+    },
+    {
+      "kode": "PP.3",
+      "nama": "Meningkatkan Kompetensi Tim HCM",
+      "perspektif": "PP",
+      "jenis": "lead",
+      "key_program": "Sertifikasi kompetensi teknis Tim HCM dan penyelesaian IDP setiap pegawai Tim HCM",
+      "cadence": "IDP minimal 1 kali setahun; evaluasi minimal 2 kali setahun"
+    },
+    {
+      "kode": "PP.4",
+      "nama": "Membangun Aplikasi Digital HCIS yang Integratif & Optimal",
+      "perspektif": "PP",
+      "jenis": "lead",
+      "key_program": "Menyusun arsitektur & rencana pengembangan aplikasi digital HCIS, survei kepuasan dan evaluasi tingkat kematangan HCIS",
+      "cadence": "Survei & evaluasi minimal 1 kali setahun"
+    },
+    {
+      "kode": "PP.5",
+      "nama": "Membangun Database HCM yang Memenuhi Kebutuhan People Analytic",
+      "perspektif": "PP",
+      "jenis": "lead",
+      "key_program": "Menyusun arsitektur & rencana pembangunan database HCM untuk people analytics dan pengembangan sesuai SLA",
+      "cadence": "Evaluasi minimal 1 kali setahun"
+    },
+    {
+      "kode": "PP.6",
+      "nama": "Memastikan Kelengkapan Policy & Procedure HCM yang Best Practices",
+      "perspektif": "PP",
+      "jenis": "lead",
+      "key_program": "Mengevaluasi kebutuhan dan menyusun rencana tahunan pembuatan/penyempurnaan/perubahan/pembaruan dokumen policy & procedure HCM",
+      "cadence": "Minimal 1 kali setahun"
+    },
+    {
+      "kode": "PP.7",
+      "nama": "Membangun Knowledge Management",
+      "perspektif": "PP",
+      "jenis": "lead",
+      "key_program": "Menyusun arsitektur & rencana pembangunan Knowledge Management, mengelola aplikasi digital KM dan kegiatan CoP",
+      "cadence": "Rencana KM event tiga bulanan"
+    }
+  ],
+  "ik": [
+    {
+      "sasaran_kode": "F.1",
+      "nama": "Rasio Laba Sebelum Pajak Per Jumlah Pegawai",
+      "satuan": "Rp Juta per Orang",
+      "arah": "naik",
+      "targets": {
+        "2026": 194.43,
+        "2027": 202.21,
+        "2028": 212.32,
+        "2029": 225.06,
+        "2030": 240.81
+      }
+    },
+    {
+      "sasaran_kode": "F.1",
+      "nama": "Rasio Laba Sebelum Pajak Per Total Biaya Tenaga Kerja",
+      "satuan": "%",
+      "arah": "naik",
+      "targets": {
+        "2026": 107.02,
+        "2027": 96.08,
+        "2028": 98.47,
+        "2029": 103.07,
+        "2030": 110.78
+      }
+    },
+    {
+      "sasaran_kode": "F.2",
+      "nama": "Porsi Imbalan Berbasis Kinerja terhadap Total Biaya Tenaga Kerja",
+      "satuan": "%",
+      "arah": "naik",
+      "targets": {
+        "2026": 22.94,
+        "2027": 24.32,
+        "2028": 26.26,
+        "2029": 28.36,
+        "2030": 30.63
+      }
+    },
+    {
+      "sasaran_kode": "F.3",
+      "nama": "Rasio Realisasi Anggaran Pengembangan Kualitas Pegawai Per Jumlah Mandays Formal Learning",
+      "satuan": "Rp Juta/Mandays",
+      "arah": "turun",
+      "targets": {
+        "2026": 4.57,
+        "2027": 3.97,
+        "2028": 3.39,
+        "2029": 2.94,
+        "2030": 2.56
+      }
+    },
+    {
+      "sasaran_kode": "F.3",
+      "nama": "Rasio Realisasi Anggaran Pengembangan Kualitas Pegawai Per Jumlah Pegawai yang Mengikuti Formal Learning Minimal 2 Hari Setahun",
+      "satuan": "Rp Juta/Orang",
+      "arah": "naik",
+      "targets": {
+        "2026": 9.15,
+        "2027": 9.93,
+        "2028": 10.17,
+        "2029": 10.31,
+        "2030": 10.26
+      }
+    },
+    {
+      "sasaran_kode": "F.3",
+      "nama": "Alokasi Minimal Anggaran Pengembangan Kualitas Pegawai Terhadap Realisasi Beban Gaji Kotor Tahun Sebelumnya",
+      "satuan": "%",
+      "arah": "naik",
+      "targets": {
+        "2026": 3.5,
+        "2027": 3.5,
+        "2028": 3.5,
+        "2029": 3.5,
+        "2030": 3.5
+      }
+    },
+    {
+      "sasaran_kode": "F.3",
+      "nama": "Realisasi Alokasi Minimal Anggaran Pengembangan Kualitas Pegawai",
+      "satuan": "%",
+      "arah": "naik",
+      "targets": {
+        "2026": 100,
+        "2027": 100,
+        "2028": 100,
+        "2029": 100,
+        "2030": 100
+      }
+    },
+    {
+      "sasaran_kode": "KS.1",
+      "nama": "Employee Engagement Score (20 s.d 80)",
+      "satuan": "Skor 20-80",
+      "arah": "naik",
+      "targets": {
+        "2026": 65,
+        "2027": 67,
+        "2028": 69,
+        "2029": 73,
+        "2030": 78
+      }
+    },
+    {
+      "sasaran_kode": "KS.2",
+      "nama": "Tingkat Keterpenuhan Talent Pool pada Program Suksesi Posisi Jabatan Struktural dan Jabatan Kunci",
+      "satuan": "%",
+      "arah": "naik",
+      "targets": {
+        "2026": 30,
+        "2027": 40,
+        "2028": 60,
+        "2029": 70,
+        "2030": 80
+      }
+    },
+    {
+      "sasaran_kode": "KS.3",
+      "nama": "Rata-Rata Tingkat Penyelesaian IDP (Individual Development Plan) Talent Pool",
+      "satuan": "%",
+      "arah": "naik",
+      "targets": {
+        "2026": 30,
+        "2027": 40,
+        "2028": 60,
+        "2029": 70,
+        "2030": 80
+      }
+    },
+    {
+      "sasaran_kode": "KS.3",
+      "nama": "Rata-Rata Tingkat Penyelesaian Rencana Kegiatan Pembelajaran Tiga Bulanan",
+      "satuan": "%",
+      "arah": "naik",
+      "targets": {
+        "2026": 95,
+        "2027": 95,
+        "2028": 95,
+        "2029": 95,
+        "2030": 95
+      }
+    },
+    {
+      "sasaran_kode": "KS.4",
+      "nama": "Persentase Pegawai yang Nilai Kinerjanya A",
+      "satuan": "%",
+      "arah": "naik",
+      "targets": {
+        "2026": 20,
+        "2027": 20,
+        "2028": 20,
+        "2029": 20,
+        "2030": 20
+      }
+    },
+    {
+      "sasaran_kode": "KS.5",
+      "nama": "Indeks Budaya Perusahaan (Skala 1-5)",
+      "satuan": "Skala 1-5",
+      "arah": "naik",
+      "targets": {
+        "2026": 3.3,
+        "2027": 3.5,
+        "2028": 4.0,
+        "2029": 4.5,
+        "2030": 4.7
+      }
+    },
+    {
+      "sasaran_kode": "KS.5",
+      "nama": "Indeks Basic Leadership (Skala 1-5)",
+      "satuan": "Skala 1-5",
+      "arah": "naik",
+      "targets": {
+        "2026": 3.3,
+        "2027": 3.5,
+        "2028": 4.0,
+        "2029": 4.5,
+        "2030": 4.7
+      }
+    },
+    {
+      "sasaran_kode": "PBI.1",
+      "nama": "Indeks Tingkat Kematangan (ITK) HCM",
+      "satuan": "Skala 1-4",
+      "arah": "naik",
+      "targets": {
+        "2026": 3.04,
+        "2027": 3.49,
+        "2028": 3.82,
+        "2029": 3.86,
+        "2030": 3.88
+      }
+    },
+    {
+      "sasaran_kode": "PBI.1.a",
+      "nama": "Indeks Tingkat Kematangan (ITK) HCM Strategic",
+      "satuan": "Skala 1-4",
+      "arah": "naik",
+      "targets": {
+        "2026": 3.02,
+        "2027": 3.6,
+        "2028": 3.9,
+        "2029": 4.0,
+        "2030": 4.0
+      }
+    },
+    {
+      "sasaran_kode": "PBI.1.b",
+      "nama": "Indeks Tingkat Kematangan (ITK) HCM Services",
+      "satuan": "Skala 1-4",
+      "arah": "naik",
+      "targets": {
+        "2026": 3.19,
+        "2027": 3.5,
+        "2028": 3.86,
+        "2029": 3.86,
+        "2030": 3.92
+      }
+    },
+    {
+      "sasaran_kode": "PBI.1.a.1",
+      "nama": "ITK Manajemen Pengembangan Organisasi",
+      "satuan": "Skala 1-4",
+      "arah": "naik",
+      "targets": {
+        "2026": 3.5,
+        "2027": 4.0,
+        "2028": 4.0,
+        "2029": 4.0,
+        "2030": 4.0
+      }
+    },
+    {
+      "sasaran_kode": "PBI.1.a.2",
+      "nama": "ITK Manajemen Perencanaan Kebutuhan Pegawai",
+      "satuan": "Skala 1-4",
+      "arah": "naik",
+      "targets": {
+        "2026": 3.17,
+        "2027": 4.0,
+        "2028": 4.0,
+        "2029": 4.0,
+        "2030": 4.0
+      }
+    },
+    {
+      "sasaran_kode": "PBI.1.a.2",
+      "nama": "Maksimal Jumlah Pegawai (Tetap, Kontrak, Magang, dan Outsource)",
+      "satuan": "Orang",
+      "arah": "naik",
+      "targets": {
+        "2026": 1484,
+        "2027": 1537,
+        "2028": 1628,
+        "2029": 1769,
+        "2030": 1954
+      }
+    },
+    {
+      "sasaran_kode": "PBI.1.a.3",
+      "nama": "ITK Manajemen Peningkatan Kompetensi",
+      "satuan": "Skala 1-4",
+      "arah": "naik",
+      "targets": {
+        "2026": 2.8,
+        "2027": 3.3,
+        "2028": 3.9,
+        "2029": 4.0,
+        "2030": 4.0
+      }
+    },
+    {
+      "sasaran_kode": "PBI.1.a.4",
+      "nama": "ITK Manajemen Pengembangan Pegawai Bertalenta (Talent Management)",
+      "satuan": "Skala 1-4",
+      "arah": "naik",
+      "targets": {
+        "2026": 2.86,
+        "2027": 3.43,
+        "2028": 4.0,
+        "2029": 4.0,
+        "2030": 4.0
+      }
+    },
+    {
+      "sasaran_kode": "PBI.1.a.5",
+      "nama": "ITK Manajemen Pengembangan Karir",
+      "satuan": "Skala 1-4",
+      "arah": "naik",
+      "targets": {
+        "2026": 3.0,
+        "2027": 3.25,
+        "2028": 3.5,
+        "2029": 4.0,
+        "2030": 4.0
+      }
+    },
+    {
+      "sasaran_kode": "PBI.1.a.6",
+      "nama": "ITK Manajemen Budaya Perusahaan",
+      "satuan": "Skala 1-4",
+      "arah": "naik",
+      "targets": {
+        "2026": 2.8,
+        "2027": 3.6,
+        "2028": 4.0,
+        "2029": 4.0,
+        "2030": 4.0
+      }
+    },
+    {
+      "sasaran_kode": "PBI.1.b.1",
+      "nama": "ITK Manajemen Rekrutmen dan Seleksi",
+      "satuan": "Skala 1-4",
+      "arah": "naik",
+      "targets": {
+        "2026": 3.33,
+        "2027": 3.5,
+        "2028": 4.0,
+        "2029": 4.0,
+        "2030": 4.0
+      }
+    },
+    {
+      "sasaran_kode": "PBI.1.b.2",
+      "nama": "ITK Manajemen Kinerja",
+      "satuan": "Skala 1-4",
+      "arah": "naik",
+      "targets": {
+        "2026": 3.0,
+        "2027": 3.2,
+        "2028": 3.8,
+        "2029": 3.8,
+        "2030": 4.0
+      }
+    },
+    {
+      "sasaran_kode": "PBI.1.b.3",
+      "nama": "ITK Manajemen Remunerasi (Penggajian & Penghargaan)",
+      "satuan": "Skala 1-4",
+      "arah": "naik",
+      "targets": {
+        "2026": 3.0,
+        "2027": 3.5,
+        "2028": 4.0,
+        "2029": 4.0,
+        "2030": 4.0
+      }
+    },
+    {
+      "sasaran_kode": "PBI.1.b.4",
+      "nama": "ITK Manajemen Perlindungan, Kepuasan, dan Keterlekatan (Engagement) Pegawai",
+      "satuan": "Skala 1-4",
+      "arah": "naik",
+      "targets": {
+        "2026": 3.2,
+        "2027": 3.8,
+        "2028": 4.0,
+        "2029": 4.0,
+        "2030": 4.0
+      }
+    },
+    {
+      "sasaran_kode": "PBI.1.b.5",
+      "nama": "ITK Manajemen Hubungan Industrial",
+      "satuan": "Skala 1-4",
+      "arah": "naik",
+      "targets": {
+        "2026": 3.4,
+        "2027": 3.5,
+        "2028": 3.5,
+        "2029": 3.5,
+        "2030": 3.6
+      }
+    },
+    {
+      "sasaran_kode": "PP.1",
+      "nama": "Readiness (Ketersediaan Personil dan Keterpenuhan Profil Kompetensi) Level HCM Specialist",
+      "satuan": "%",
+      "arah": "naik",
+      "targets": {
+        "2026": 50,
+        "2027": 75,
+        "2028": 100,
+        "2029": 100,
+        "2030": 100
+      }
+    },
+    {
+      "sasaran_kode": "PP.2",
+      "nama": "Rata-rata Indeks Budaya Perusahaan Tim HCM dan Indeks Basic Leadership Tim HCM (Skala 1-5)",
+      "satuan": "Skala 1-5",
+      "arah": "naik",
+      "targets": {
+        "2026": 3.5,
+        "2027": 3.7,
+        "2028": 4.0,
+        "2029": 4.5,
+        "2030": 4.7
+      }
+    },
+    {
+      "sasaran_kode": "PP.3",
+      "nama": "Tingkat Keterpenuhan Kebutuhan Sertifikasi Kompetensi Teknis pada Tim HCM",
+      "satuan": "%",
+      "arah": "naik",
+      "targets": {
+        "2026": 100,
+        "2027": 100,
+        "2028": 100,
+        "2029": 100,
+        "2030": 100
+      }
+    },
+    {
+      "sasaran_kode": "PP.3",
+      "nama": "Rata-rata Tingkat Penyelesaian IDP setiap pegawai pada Tim HCM",
+      "satuan": "%",
+      "arah": "naik",
+      "targets": {
+        "2026": 70,
+        "2027": 85,
+        "2028": 100,
+        "2029": 100,
+        "2030": 100
+      }
+    },
+    {
+      "sasaran_kode": "PP.4",
+      "nama": "Tingkat Kepuasan Pegawai Terhadap Aplikasi Digital HCIS",
+      "satuan": "%",
+      "arah": "naik",
+      "targets": {
+        "2026": null,
+        "2027": null,
+        "2028": 70,
+        "2029": 75,
+        "2030": 80
+      }
+    },
+    {
+      "sasaran_kode": "PP.4",
+      "nama": "Akumulasi Penyelesaian Rencana Pengembangan Aplikasi HCIS",
+      "satuan": "%",
+      "arah": "naik",
+      "targets": {
+        "2026": 30,
+        "2027": 70,
+        "2028": 100,
+        "2029": null,
+        "2030": null
+      }
+    },
+    {
+      "sasaran_kode": "PP.4",
+      "nama": "ITK HCIS",
+      "satuan": "Skala 1-4",
+      "arah": "naik",
+      "targets": {
+        "2026": 2.4,
+        "2027": 3.0,
+        "2028": 3.6,
+        "2029": 4.0,
+        "2030": 4.0
+      }
+    },
+    {
+      "sasaran_kode": "PP.5",
+      "nama": "Persentase pencapaian target tahunan pembangunan/pengembangan database yang memenuhi kebutuhan people analytics",
+      "satuan": "%",
+      "arah": "naik",
+      "targets": {
+        "2026": 80,
+        "2027": 90,
+        "2028": 95,
+        "2029": 95,
+        "2030": 95
+      }
+    },
+    {
+      "sasaran_kode": "PP.5",
+      "nama": "Tingkat Pemenuhan SLA Pengembangan Database HCM",
+      "satuan": "%",
+      "arah": "naik",
+      "targets": {
+        "2026": 80,
+        "2027": 90,
+        "2028": 95,
+        "2029": 95,
+        "2030": 95
+      }
+    },
+    {
+      "sasaran_kode": "PP.5",
+      "nama": "ITK Manajemen Database HCM",
+      "satuan": "Skala 1-4",
+      "arah": "naik",
+      "targets": {
+        "2026": 3.0,
+        "2027": 3.0,
+        "2028": 3.0,
+        "2029": 3.0,
+        "2030": 3.0
+      }
+    },
+    {
+      "sasaran_kode": "PP.6",
+      "nama": "Tingkat Penyelesaian Rencana Tahunan Pembuatan/Penyempurnaan/Perubahan/Pembaruan Dokumen Policy & Procedure HCM",
+      "satuan": "% dari target",
+      "arah": "naik",
+      "targets": {
+        "2026": 100,
+        "2027": 100,
+        "2028": 100,
+        "2029": 100,
+        "2030": 100
+      }
+    },
+    {
+      "sasaran_kode": "PP.7",
+      "nama": "Akumulasi Penyelesaian Rencana Pembangunan Knowledge Management",
+      "satuan": "%",
+      "arah": "naik",
+      "targets": {
+        "2026": 30,
+        "2027": 70,
+        "2028": 100,
+        "2029": null,
+        "2030": null
+      }
+    },
+    {
+      "sasaran_kode": "PP.7",
+      "nama": "Rata-Rata Tingkat Penyelesaian Rencana Knowledge Management Event Tiga Bulanan",
+      "satuan": "%",
+      "arah": "naik",
+      "targets": {
+        "2026": 70,
+        "2027": 85,
+        "2028": 95,
+        "2029": 95,
+        "2030": 95
+      }
+    }
+  ],
+  "maturity": [
+    {
+      "kode": "PBI.1.a.1",
+      "nama": "Manajemen Pengembangan Organisasi (Organization Development)",
+      "cluster": "Strategic",
+      "baseline2025": 3.33,
+      "targets": {
+        "2026": 3.5,
+        "2027": 4.0,
+        "2028": 4.0,
+        "2029": 4.0,
+        "2030": 4.0
+      }
+    },
+    {
+      "kode": "PBI.1.a.2",
+      "nama": "Manajemen Perencanaan Kebutuhan Pegawai (Human Capital Planning)",
+      "cluster": "Strategic",
+      "baseline2025": 2.33,
+      "targets": {
+        "2026": 3.17,
+        "2027": 4.0,
+        "2028": 4.0,
+        "2029": 4.0,
+        "2030": 4.0
+      }
+    },
+    {
+      "kode": "PBI.1.a.3",
+      "nama": "Manajemen Peningkatan Kompetensi",
+      "cluster": "Strategic",
+      "baseline2025": 1.87,
+      "targets": {
+        "2026": 2.8,
+        "2027": 3.3,
+        "2028": 3.9,
+        "2029": 4.0,
+        "2030": 4.0
+      }
+    },
+    {
+      "kode": "PBI.1.a.4",
+      "nama": "Manajemen Pengembangan Pegawai Bertalenta (Talent Management)",
+      "cluster": "Strategic",
+      "baseline2025": 1.76,
+      "targets": {
+        "2026": 2.86,
+        "2027": 3.43,
+        "2028": 4.0,
+        "2029": 4.0,
+        "2030": 4.0
+      }
+    },
+    {
+      "kode": "PBI.1.a.5",
+      "nama": "Manajemen Pengembangan Karier (Career Development Management)",
+      "cluster": "Strategic",
+      "baseline2025": 1.5,
+      "targets": {
+        "2026": 3.0,
+        "2027": 3.25,
+        "2028": 3.5,
+        "2029": 4.0,
+        "2030": 4.0
+      }
+    },
+    {
+      "kode": "PBI.1.a.6",
+      "nama": "Manajemen Budaya Perusahaan",
+      "cluster": "Strategic",
+      "baseline2025": 2.53,
+      "targets": {
+        "2026": 2.8,
+        "2027": 3.6,
+        "2028": 4.0,
+        "2029": 4.0,
+        "2030": 4.0
+      }
+    },
+    {
+      "kode": "PBI.1.b.1",
+      "nama": "Manajemen Rekrutmen & Seleksi Pegawai",
+      "cluster": "Services",
+      "baseline2025": 2.72,
+      "targets": {
+        "2026": 3.33,
+        "2027": 3.5,
+        "2028": 4.0,
+        "2029": 4.0,
+        "2030": 4.0
+      }
+    },
+    {
+      "kode": "PBI.1.b.2",
+      "nama": "Manajemen Kinerja (Performance Management)",
+      "cluster": "Services",
+      "baseline2025": 2.8,
+      "targets": {
+        "2026": 3.0,
+        "2027": 3.2,
+        "2028": 3.8,
+        "2029": 3.8,
+        "2030": 4.0
+      }
+    },
+    {
+      "kode": "PBI.1.b.3",
+      "nama": "Manajemen Remunerasi (Penggajian & Penghargaan)",
+      "cluster": "Services",
+      "baseline2025": 2.0,
+      "targets": {
+        "2026": 3.0,
+        "2027": 3.5,
+        "2028": 4.0,
+        "2029": 4.0,
+        "2030": 4.0
+      }
+    },
+    {
+      "kode": "PBI.1.b.4",
+      "nama": "Manajemen Perlindungan, Pelayanan, Kepuasan Dan Keterlekatan Pegawai",
+      "cluster": "Services",
+      "baseline2025": 2.73,
+      "targets": {
+        "2026": 3.2,
+        "2027": 3.8,
+        "2028": 4.0,
+        "2029": 4.0,
+        "2030": 4.0
+      }
+    },
+    {
+      "kode": "PBI.1.b.5",
+      "nama": "Manajemen Hubungan Industrial",
+      "cluster": "Services",
+      "baseline2025": 3.0,
+      "targets": {
+        "2026": 3.4,
+        "2027": 3.5,
+        "2028": 3.5,
+        "2029": 3.5,
+        "2030": 3.6
+      }
+    },
+    {
+      "kode": null,
+      "nama": "Manajemen Sistem Informasi Human Capital",
+      "cluster": "HCIS",
+      "baseline2025": 2.14,
+      "targets": {
+        "2026": 2.4,
+        "2027": 3.0,
+        "2028": 3.6,
+        "2029": 4.0,
+        "2030": 4.0
+      }
+    },
+    {
+      "kode": null,
+      "nama": "Manajemen Database HCM",
+      "cluster": "HCIS",
+      "baseline2025": 3.22,
+      "targets": {
+        "2026": 3.0,
+        "2027": 3.0,
+        "2028": 3.0,
+        "2029": 3.0,
+        "2030": 3.0
+      }
+    }
+  ],
+  "kegiatan": [
+    {
+      "sasaran_kode": "F.1",
+      "urutan": 1,
+      "program": "Mengevaluasi produktivitas pegawai dengan pencapaian target rasio laba sebelum pajak per jumlah pegawai dan per total biaya tenaga kerja, merumuskan dan menerapkan upaya peningkatan produktivitas pegawai"
+    },
+    {
+      "sasaran_kode": "F.1",
+      "urutan": 2,
+      "program": "Menerapkan key program dari [F.2] dan [F.3] serta [KS.1] s.d. [KS.5]"
+    },
+    {
+      "sasaran_kode": "F.2",
+      "urutan": 1,
+      "program": "Menginventarisir dan mengatur ulang sistem (komponen, standar norma, mekanisme) imbalan berbasis kinerja seperti bonus, insentif dan fasilitas khusus"
+    },
+    {
+      "sasaran_kode": "F.2",
+      "urutan": 2,
+      "program": "Mengevaluasi korelasi imbalan berbasis kinerja dengan peningkatan produktivitas dan kinerja pegawai"
+    },
+    {
+      "sasaran_kode": "F.2",
+      "urutan": 3,
+      "program": "Mengatur ulang sistem imbalan berbasis kinerja sesuai hasil evaluasi korelasi, bila diperlukan"
+    },
+    {
+      "sasaran_kode": "F.2",
+      "urutan": 4,
+      "program": "Mengevaluasi realisasi peningkatan porsi imbalan berbasis kinerja, merumuskan dan menerapkan upaya peningkatan"
+    },
+    {
+      "sasaran_kode": "F.2",
+      "urutan": 5,
+      "program": "Menerapkan key program dari [KS.1] s.d. [KS.5] serta PBI.1"
+    },
+    {
+      "sasaran_kode": "F.3",
+      "urutan": 1,
+      "program": "Mengalokasikan Anggaran Pengembangan Kualitas Pegawai"
+    },
+    {
+      "sasaran_kode": "F.3",
+      "urutan": 2,
+      "program": "Mengevaluasi optimalisasi Anggaran HCM yang digunakan untuk Pengembangan Kualitas Pegawai berdasarkan pencapaian target indikator kinerja"
+    },
+    {
+      "sasaran_kode": "F.3",
+      "urutan": 3,
+      "program": "Merumuskan dan melakukan upaya peningkatan optimalisasi anggaran HCM untuk pengembangan kualitas pegawai"
+    },
+    {
+      "sasaran_kode": "F.3",
+      "urutan": 4,
+      "program": "Menerapkan key program dari [KS.1] s.d. [KS.5] serta PBI.1"
+    },
+    {
+      "sasaran_kode": "KS.1",
+      "urutan": 1,
+      "program": "Melakukan Survei Engagement Pegawai minimal 1 kali setahun secara berkelanjutan"
+    },
+    {
+      "sasaran_kode": "KS.1",
+      "urutan": 2,
+      "program": "Menganalisis hasil survei dan merumuskan upaya peningkatan engagement pegawai"
+    },
+    {
+      "sasaran_kode": "KS.1",
+      "urutan": 3,
+      "program": "Menjalankan upaya peningkatan engagement pegawai secara berkelanjutan"
+    },
+    {
+      "sasaran_kode": "KS.1",
+      "urutan": 4,
+      "program": "Mengevaluasi efektivitas pelaksanaan upaya peningkatan engagement pegawai"
+    },
+    {
+      "sasaran_kode": "KS.1",
+      "urutan": 5,
+      "program": "Menerapkan key program dari [F.1] s.d. [F.3], [KS.2], dan [KS.5]"
+    },
+    {
+      "sasaran_kode": "KS.2",
+      "urutan": 1,
+      "program": "Mengevaluasi tingkat keterpenuhan talent pool pada program suksesi posisi jabatan struktural dan jabatan kunci"
+    },
+    {
+      "sasaran_kode": "KS.2",
+      "urutan": 2,
+      "program": "Merumuskan serta menerapkan upaya peningkatan secara berkelanjutan"
+    },
+    {
+      "sasaran_kode": "KS.2",
+      "urutan": 3,
+      "program": "Menerapkan key program dari [F.1] s.d. [F.3], [KS.3] dan [KS.4]"
+    },
+    {
+      "sasaran_kode": "KS.3",
+      "urutan": 1,
+      "program": "Mengevaluasi tingkat penyelesaian IDP Talent Pool"
+    },
+    {
+      "sasaran_kode": "KS.3",
+      "urutan": 2,
+      "program": "Merumuskan serta menerapkan upaya peningkatan secara berkelanjutan"
+    },
+    {
+      "sasaran_kode": "KS.3",
+      "urutan": 3,
+      "program": "Mengevaluasi tingkat penyelesaian Rencana Kegiatan Pembelajaran Tiga Bulanan dan menerapkan upaya peningkatan"
+    },
+    {
+      "sasaran_kode": "KS.3",
+      "urutan": 4,
+      "program": "Menerapkan key program dari [F.1] s.d. [F.3], dan [PBI.1]"
+    },
+    {
+      "sasaran_kode": "KS.4",
+      "urutan": 1,
+      "program": "Mengevaluasi tingkat pencapaian target KPI pegawai khususnya posisi jabatan struktural dan jabatan kunci"
+    },
+    {
+      "sasaran_kode": "KS.4",
+      "urutan": 2,
+      "program": "Merumuskan serta menerapkan upaya peningkatan secara berkesinambungan"
+    },
+    {
+      "sasaran_kode": "KS.4",
+      "urutan": 3,
+      "program": "Menerapkan key program [F.1] s.d. [F.3], dan [PBI.1]"
+    },
+    {
+      "sasaran_kode": "KS.5",
+      "urutan": 1,
+      "program": "Menyiapkan tools Survei Indeks Budaya Perusahaan dan Indeks Basic Leadership"
+    },
+    {
+      "sasaran_kode": "KS.5",
+      "urutan": 2,
+      "program": "Melakukan Survei Indeks Budaya Perusahaan dan Indeks Basic Leadership minimal 1 kali setahun"
+    },
+    {
+      "sasaran_kode": "KS.5",
+      "urutan": 3,
+      "program": "Menganalisis hasil survei, merumuskan dan menerapkan upaya penguatan yang diperlukan"
+    },
+    {
+      "sasaran_kode": "KS.5",
+      "urutan": 4,
+      "program": "Menerapkan key program dari [F.1] s.d. [F.3], dan [PBI.1]"
+    },
+    {
+      "sasaran_kode": "PBI.1",
+      "urutan": 1,
+      "program": "Menghitung Indeks Tingkat Kematangan HCM, minimal 1 kali setahun"
+    },
+    {
+      "sasaran_kode": "PBI.1.a",
+      "urutan": 1,
+      "program": "Menghitung Indeks Tingkat Kematangan HCM Strategic, minimal 1 kali setahun"
+    },
+    {
+      "sasaran_kode": "PBI.1.b",
+      "urutan": 1,
+      "program": "Menghitung Indeks Tingkat Kematangan HCM Services, minimal 1 kali setahun"
+    },
+    {
+      "sasaran_kode": "PBI.1.a.1",
+      "urutan": 1,
+      "program": "Memastikan adanya bagan struktur organisasi seluruh unit kerja dan posisi jabatan yang disahkan Direksi"
+    },
+    {
+      "sasaran_kode": "PBI.1.a.1",
+      "urutan": 2,
+      "program": "Mereview dan menginventarisir struktur organisasi & posisi jabatan yang belum terimplementasi"
+    },
+    {
+      "sasaran_kode": "PBI.1.a.1",
+      "urutan": 3,
+      "program": "Mengimplementasikan seluruh struktur organisasi dan posisi jabatan yang sudah disahkan Direksi"
+    },
+    {
+      "sasaran_kode": "PBI.1.a.1",
+      "urutan": 4,
+      "program": "Memastikan kebijakan standar level jabatan/job title dan job grading seluruh jabatan disahkan Direksi"
+    },
+    {
+      "sasaran_kode": "PBI.1.a.1",
+      "urutan": 5,
+      "program": "Melakukan analisa dan evaluasi jabatan untuk menentukan job description dan job grading"
+    },
+    {
+      "sasaran_kode": "PBI.1.a.1",
+      "urutan": 6,
+      "program": "Memastikan daftar seluruh nama jabatan, level jabatan/job title dan job grading sesuai struktur organisasi"
+    },
+    {
+      "sasaran_kode": "PBI.1.a.1",
+      "urutan": 7,
+      "program": "Melakukan evaluasi berkala efektivitas manajemen pengembangan organisasi minimal 1 kali setahun"
+    },
+    {
+      "sasaran_kode": "PBI.1.a.1",
+      "urutan": 8,
+      "program": "Menyelesaikan seluruh tindak lanjut perbaikan hasil evaluasi sesuai timeline"
+    },
+    {
+      "sasaran_kode": "PBI.1.a.1",
+      "urutan": 9,
+      "program": "Menerapkan key program dari Inisiatif Strategis [PP.1] s.d. [PP.7]"
+    },
+    {
+      "sasaran_kode": "PBI.1.a.2",
+      "urutan": 1,
+      "program": "Menyusun peta jabatan dan rencana kebutuhan pegawai 5 tahun berdasarkan analisa jabatan dan beban kerja"
+    },
+    {
+      "sasaran_kode": "PBI.1.a.2",
+      "urutan": 2,
+      "program": "Menyampaikan peta jabatan & rencana kebutuhan pegawai ke Direksi untuk penetapan"
+    },
+    {
+      "sasaran_kode": "PBI.1.a.2",
+      "urutan": 3,
+      "program": "Menyiapkan data pegawai yang akan pensiun 5 tahun ke depan, real time dan terintegrasi dalam Sistem Informasi Manajemen Human Capital"
+    },
+    {
+      "sasaran_kode": "PBI.1.a.2",
+      "urutan": 4,
+      "program": "Menentukan posisi jabatan yang dianggap penting ada hasil analisa beban kerjanya"
+    },
+    {
+      "sasaran_kode": "PBI.1.a.2",
+      "urutan": 5,
+      "program": "Memastikan adanya hasil analisis beban kerja yang valid untuk seluruh posisi jabatan penting"
+    },
+    {
+      "sasaran_kode": "PBI.1.a.2",
+      "urutan": 6,
+      "program": "Menyusun rencana pemenuhan kebutuhan pegawai (tetap, kontrak, alih daya) untuk 5 tahun"
+    },
+    {
+      "sasaran_kode": "PBI.1.a.2",
+      "urutan": 7,
+      "program": "Melakukan evaluasi berkala efektivitas manajemen perencanaan kebutuhan pegawai"
+    },
+    {
+      "sasaran_kode": "PBI.1.a.2",
+      "urutan": 8,
+      "program": "Menyelesaikan seluruh tindak lanjut perbaikan hasil evaluasi sesuai timeline"
+    },
+    {
+      "sasaran_kode": "PBI.1.a.2",
+      "urutan": 9,
+      "program": "Menerapkan key program dari Inisiatif Strategis [PP.1] s.d. [PP.7]"
+    },
+    {
+      "sasaran_kode": "PBI.1.a.3",
+      "urutan": 1,
+      "program": "Membangun arsitektur pembelajaran (learning architecture) sesuai model kompetensi untuk seluruh jabatan"
+    },
+    {
+      "sasaran_kode": "PBI.1.a.3",
+      "urutan": 2,
+      "program": "Mengevaluasi dan memperbarui arsitektur pembelajaran secara berkala"
+    },
+    {
+      "sasaran_kode": "PBI.1.a.3",
+      "urutan": 3,
+      "program": "Membangun dan mengelola fasilitator pembelajaran internal (trainer, coach, counselor, mentor, SME)"
+    },
+    {
+      "sasaran_kode": "PBI.1.a.3",
+      "urutan": 4,
+      "program": "Menyelenggarakan program sertifikasi fasilitator internal"
+    },
+    {
+      "sasaran_kode": "PBI.1.a.3",
+      "urutan": 5,
+      "program": "Menginisiasi dan memfasilitasi kegiatan CoP (Community of Practices)"
+    },
+    {
+      "sasaran_kode": "PBI.1.a.3",
+      "urutan": 6,
+      "program": "Memperluas pengelolaan inventory modul pembelajaran"
+    },
+    {
+      "sasaran_kode": "PBI.1.a.3",
+      "urutan": 7,
+      "program": "Menyiapkan dan membangun arsitektur & infrastruktur pembelajaran termasuk LMS (Digital Learning Portal)"
+    },
+    {
+      "sasaran_kode": "PBI.1.a.3",
+      "urutan": 8,
+      "program": "Menyiapkan RKAPm (Rencana Kerja Anggaran Pembelajaran) tahunan dan mendapatkan pengesahan Direksi"
+    },
+    {
+      "sasaran_kode": "PBI.1.a.3",
+      "urutan": 9,
+      "program": "Menyelenggarakan program peningkatan kompetensi (structured, social, experiential learning)"
+    },
+    {
+      "sasaran_kode": "PBI.1.a.3",
+      "urutan": 10,
+      "program": "Melaksanakan evaluasi efektivitas pembelajaran sampai L1, L3, dan L5 (ROLI) secara bertahap"
+    },
+    {
+      "sasaran_kode": "PBI.1.a.3",
+      "urutan": 11,
+      "program": "Mengintegrasikan database pembelajaran dengan Sistem Informasi Human Capital"
+    },
+    {
+      "sasaran_kode": "PBI.1.a.3",
+      "urutan": 12,
+      "program": "Melakukan evaluasi berkala efektivitas manajemen peningkatan kompetensi dan menyelesaikan tindak lanjut perbaikan"
+    },
+    {
+      "sasaran_kode": "PBI.1.a.3",
+      "urutan": 13,
+      "program": "Menerapkan key program dari Inisiatif Strategis [PP.1] s.d. [PP.7]"
+    },
+    {
+      "sasaran_kode": "PBI.1.a.4",
+      "urutan": 1,
+      "program": "Mengelola program pengembangan pegawai bertalenta (talent management)"
+    },
+    {
+      "sasaran_kode": "PBI.1.a.4",
+      "urutan": 2,
+      "program": "Melakukan evaluasi berkala efektivitas manajemen pengembangan pegawai bertalenta"
+    },
+    {
+      "sasaran_kode": "PBI.1.a.4",
+      "urutan": 3,
+      "program": "Menerapkan key program dari Inisiatif Strategis [PP.1] s.d. [PP.7]"
+    },
+    {
+      "sasaran_kode": "PBI.1.a.5",
+      "urutan": 1,
+      "program": "Mengelola manajemen pengembangan karir"
+    },
+    {
+      "sasaran_kode": "PBI.1.a.5",
+      "urutan": 2,
+      "program": "Melakukan evaluasi berkala efektivitas manajemen pengembangan karir"
+    },
+    {
+      "sasaran_kode": "PBI.1.a.5",
+      "urutan": 3,
+      "program": "Menerapkan key program dari Inisiatif Strategis [PP.1] s.d. [PP.7]"
+    },
+    {
+      "sasaran_kode": "PBI.1.a.6",
+      "urutan": 1,
+      "program": "Mengelola sistem manajemen budaya perusahaan termasuk change agent (target ~7% pada 2027, ~10% mulai 2028)"
+    },
+    {
+      "sasaran_kode": "PBI.1.a.6",
+      "urutan": 2,
+      "program": "Melakukan evaluasi berkala efektivitas manajemen budaya perusahaan"
+    },
+    {
+      "sasaran_kode": "PBI.1.a.6",
+      "urutan": 3,
+      "program": "Menerapkan key program dari Inisiatif Strategis [PP.1] s.d. [PP.7]"
+    },
+    {
+      "sasaran_kode": "PBI.1.b.1",
+      "urutan": 1,
+      "program": "Meningkatkan efektivitas pelaksanaan rekrutmen & seleksi pegawai sesuai rencana dan kebijakan internal"
+    },
+    {
+      "sasaran_kode": "PBI.1.b.1",
+      "urutan": 2,
+      "program": "Meningkatkan efektivitas pelaksanaan orientasi jabatan sesuai rencana dan kebijakan internal"
+    },
+    {
+      "sasaran_kode": "PBI.1.b.1",
+      "urutan": 3,
+      "program": "Melakukan evaluasi berkala efektivitas manajemen rekrutmen dan seleksi"
+    },
+    {
+      "sasaran_kode": "PBI.1.b.1",
+      "urutan": 4,
+      "program": "Menerapkan key program dari Inisiatif Strategis [PP.1] s.d. [PP.7]"
+    },
+    {
+      "sasaran_kode": "PBI.1.b.2",
+      "urutan": 1,
+      "program": "Memastikan kontribusi aspek perilaku dalam penilaian kinerja maksimum 30%"
+    },
+    {
+      "sasaran_kode": "PBI.1.b.2",
+      "urutan": 2,
+      "program": "Melakukan evaluasi berkala efektivitas manajemen kinerja"
+    },
+    {
+      "sasaran_kode": "PBI.1.b.2",
+      "urutan": 3,
+      "program": "Menerapkan key program dari Inisiatif Strategis [PP.1] s.d. [PP.7]"
+    },
+    {
+      "sasaran_kode": "PBI.1.b.3",
+      "urutan": 1,
+      "program": "Menyempurnakan sistem manajemen remunerasi (penggajian & penghargaan)"
+    },
+    {
+      "sasaran_kode": "PBI.1.b.3",
+      "urutan": 2,
+      "program": "Melakukan evaluasi berkala efektivitas manajemen remunerasi"
+    },
+    {
+      "sasaran_kode": "PBI.1.b.3",
+      "urutan": 3,
+      "program": "Menerapkan key program dari Inisiatif Strategis [PP.1] s.d. [PP.7]"
+    },
+    {
+      "sasaran_kode": "PBI.1.b.4",
+      "urutan": 1,
+      "program": "Mengelola perlindungan, pelayanan, kepuasan dan keterlekatan (engagement) pegawai"
+    },
+    {
+      "sasaran_kode": "PBI.1.b.4",
+      "urutan": 2,
+      "program": "Melakukan evaluasi berkala efektivitas manajemen perlindungan, kepuasan dan keterlekatan pegawai"
+    },
+    {
+      "sasaran_kode": "PBI.1.b.4",
+      "urutan": 3,
+      "program": "Menerapkan key program dari Inisiatif Strategis [PP.1] s.d. [PP.7]"
+    },
+    {
+      "sasaran_kode": "PBI.1.b.5",
+      "urutan": 1,
+      "program": "Meningkatkan kualitas proses dan hasil penanganan keluhan pegawai"
+    },
+    {
+      "sasaran_kode": "PBI.1.b.5",
+      "urutan": 2,
+      "program": "Melakukan evaluasi berkala efektivitas manajemen hubungan industrial"
+    },
+    {
+      "sasaran_kode": "PBI.1.b.5",
+      "urutan": 3,
+      "program": "Menerapkan key program dari Inisiatif Strategis [PP.1] s.d. [PP.7]"
+    },
+    {
+      "sasaran_kode": "PP.1",
+      "urutan": 1,
+      "program": "Mengidentifikasi kebutuhan HCM Specialist"
+    },
+    {
+      "sasaran_kode": "PP.1",
+      "urutan": 2,
+      "program": "Mengidentifikasi kandidat HCM Specialist"
+    },
+    {
+      "sasaran_kode": "PP.1",
+      "urutan": 3,
+      "program": "Merumuskan IDP dari setiap kandidat HCM Specialist"
+    },
+    {
+      "sasaran_kode": "PP.1",
+      "urutan": 4,
+      "program": "Mengimplementasikan IDP"
+    },
+    {
+      "sasaran_kode": "PP.1",
+      "urutan": 5,
+      "program": "Mengevaluasi efektivitas implementasi dan merumuskan upaya peningkatan"
+    },
+    {
+      "sasaran_kode": "PP.1",
+      "urutan": 6,
+      "program": "Menerapkan upaya peningkatan efektivitas implementasi IDP secara berkesinambungan"
+    },
+    {
+      "sasaran_kode": "PP.1",
+      "urutan": 7,
+      "program": "Mengidentifikasi kandidat HCM Specialist pengganti/pelengkap dan merumuskan IDP-nya bila diperlukan"
+    },
+    {
+      "sasaran_kode": "PP.1",
+      "urutan": 8,
+      "program": "Melakukan asesmen Readiness Level HCM Specialist dan merumuskan upaya peningkatan"
+    },
+    {
+      "sasaran_kode": "PP.1",
+      "urutan": 9,
+      "program": "Menerapkan upaya peningkatan Readiness Level HCM Specialist secara berkesinambungan"
+    },
+    {
+      "sasaran_kode": "PP.1",
+      "urutan": 10,
+      "program": "Menerapkan key program [PP.3], [PP.6], dan [PP.7]"
+    },
+    {
+      "sasaran_kode": "PP.2",
+      "urutan": 1,
+      "program": "Menyiapkan perangkat Sistem Manajemen Budaya Perusahaan pada Tim HCM (Change Leader & Change Agent)"
+    },
+    {
+      "sasaran_kode": "PP.2",
+      "urutan": 2,
+      "program": "Membangun dan memperbarui Program Awareness-Internalisasi-Eksternalisasi Budaya Perusahaan pada Tim HCM"
+    },
+    {
+      "sasaran_kode": "PP.2",
+      "urutan": 3,
+      "program": "Menjalankan dan mengevaluasi efektivitas program budaya perusahaan pada Tim HCM"
+    },
+    {
+      "sasaran_kode": "PP.2",
+      "urutan": 4,
+      "program": "Memberikan program pembelajaran Basic Leadership dengan pendekatan 70:20:10 kepada seluruh pegawai Tim HCM"
+    },
+    {
+      "sasaran_kode": "PP.2",
+      "urutan": 5,
+      "program": "Mengevaluasi rata-rata Indeks Budaya Perusahaan dan Indeks Basic Leadership Tim HCM"
+    },
+    {
+      "sasaran_kode": "PP.2",
+      "urutan": 6,
+      "program": "Menerapkan key program [PP.3]"
+    },
+    {
+      "sasaran_kode": "PP.3",
+      "urutan": 1,
+      "program": "Mengidentifikasi persyaratan sertifikasi kompetensi bagi setiap pegawai Tim HCM sesuai fungsi jabatannya"
+    },
+    {
+      "sasaran_kode": "PP.3",
+      "urutan": 2,
+      "program": "Melaksanakan program pembelajaran penguasaan kompetensi dilanjutkan ujian sertifikasi kompetensi"
+    },
+    {
+      "sasaran_kode": "PP.3",
+      "urutan": 3,
+      "program": "Memperbarui Sertifikasi Kompetensi sesuai kebutuhan"
+    },
+    {
+      "sasaran_kode": "PP.3",
+      "urutan": 4,
+      "program": "Menyiapkan IDP bagi setiap pegawai pada Tim HCM"
+    },
+    {
+      "sasaran_kode": "PP.3",
+      "urutan": 5,
+      "program": "Memfasilitasi pelaksanaan IDP bagi setiap pegawai pada Tim HCM"
+    },
+    {
+      "sasaran_kode": "PP.3",
+      "urutan": 6,
+      "program": "Mengevaluasi efektivitas pelaksanaan IDP dan merumuskan upaya peningkatan"
+    },
+    {
+      "sasaran_kode": "PP.3",
+      "urutan": 7,
+      "program": "Menerapkan upaya peningkatan efektivitas pelaksanaan IDP Tim HCM secara berkesinambungan"
+    },
+    {
+      "sasaran_kode": "PP.4",
+      "urutan": 1,
+      "program": "Menyusun Arsitektur dan Rencana Pengembangan Aplikasi Digital HCIS"
+    },
+    {
+      "sasaran_kode": "PP.4",
+      "urutan": 2,
+      "program": "Melaksanakan Rencana Pengembangan Aplikasi Digital HCIS"
+    },
+    {
+      "sasaran_kode": "PP.4",
+      "urutan": 3,
+      "program": "Melakukan survei Tingkat Kepuasan Pegawai terhadap Aplikasi Digital HCIS dan menerapkan upaya peningkatan"
+    },
+    {
+      "sasaran_kode": "PP.4",
+      "urutan": 4,
+      "program": "Mengevaluasi Tingkat Kematangan HCIS dan merumuskan upaya peningkatan"
+    },
+    {
+      "sasaran_kode": "PP.4",
+      "urutan": 5,
+      "program": "Menerapkan upaya peningkatan secara berkesinambungan"
+    },
+    {
+      "sasaran_kode": "PP.4",
+      "urutan": 6,
+      "program": "Menerapkan key program [PP.6]"
+    },
+    {
+      "sasaran_kode": "PP.5",
+      "urutan": 1,
+      "program": "Melakukan evaluasi detail kondisi database HCM existing"
+    },
+    {
+      "sasaran_kode": "PP.5",
+      "urutan": 2,
+      "program": "Melakukan benchmark database HCM yang memenuhi kebutuhan people analytic"
+    },
+    {
+      "sasaran_kode": "PP.5",
+      "urutan": 3,
+      "program": "Menyusun Arsitektur dan Rencana Pembangunan & Pengembangan Database HCM untuk People Analytic"
+    },
+    {
+      "sasaran_kode": "PP.5",
+      "urutan": 4,
+      "program": "Melaksanakan Rencana Pembangunan Database HCM untuk People Analytic"
+    },
+    {
+      "sasaran_kode": "PP.5",
+      "urutan": 5,
+      "program": "Melakukan pengembangan database HCM sesuai SLA"
+    },
+    {
+      "sasaran_kode": "PP.5",
+      "urutan": 6,
+      "program": "Mengevaluasi Tingkat Kematangan database HCM dan menerapkan upaya peningkatan"
+    },
+    {
+      "sasaran_kode": "PP.5",
+      "urutan": 7,
+      "program": "Menerapkan key program dari [PP.6]"
+    },
+    {
+      "sasaran_kode": "PP.6",
+      "urutan": 1,
+      "program": "Mengevaluasi kebutuhan pembuatan/penyempurnaan/perubahan/pembaruan policy & procedure HCM"
+    },
+    {
+      "sasaran_kode": "PP.6",
+      "urutan": 2,
+      "program": "Benchmark policy, procedure dan praktek HCM yang best practices"
+    },
+    {
+      "sasaran_kode": "PP.6",
+      "urutan": 3,
+      "program": "Menyusun dan menjalankan Rencana Pembuatan/Penyempurnaan/Perubahan/Pembaruan Dokumen Policy & Procedure Tahunan"
+    },
+    {
+      "sasaran_kode": "PP.7",
+      "urutan": 1,
+      "program": "Menyusun Arsitektur dan Rencana Pembangunan Knowledge Management"
+    },
+    {
+      "sasaran_kode": "PP.7",
+      "urutan": 2,
+      "program": "Melaksanakan Rencana Pembangunan Aplikasi Digital Knowledge Management"
+    },
+    {
+      "sasaran_kode": "PP.7",
+      "urutan": 3,
+      "program": "Mengelola Aplikasi Digital Knowledge Management"
+    },
+    {
+      "sasaran_kode": "PP.7",
+      "urutan": 4,
+      "program": "Menginisiasi pembentukan CoP (Community of Practices)"
+    },
+    {
+      "sasaran_kode": "PP.7",
+      "urutan": 5,
+      "program": "Mengelola kegiatan CoP (Community of Practices)"
+    }
+  ],
+  "pic": [
+    {
+      "sasaran_kode": "F.1",
+      "peran": "Utama",
+      "unit": "Kepala Divisi Human Capital (HC)"
+    },
+    {
+      "sasaran_kode": "F.1",
+      "peran": "Pendukung",
+      "unit": "Kepala Bagian Perencanaan dan Pengembangan HC"
+    },
+    {
+      "sasaran_kode": "F.1",
+      "peran": "Pendukung",
+      "unit": "Kepala Bagian Operasional HC"
+    },
+    {
+      "sasaran_kode": "F.2",
+      "peran": "Utama",
+      "unit": "Kepala Divisi Human Capital (HC)"
+    },
+    {
+      "sasaran_kode": "F.2",
+      "peran": "Pendukung",
+      "unit": "Kepala Bagian Operasional HC"
+    },
+    {
+      "sasaran_kode": "F.2",
+      "peran": "Pendukung",
+      "unit": "Kepala Bagian Perencanaan dan Pengembangan HC"
+    },
+    {
+      "sasaran_kode": "F.3",
+      "peran": "Utama",
+      "unit": "Kepala Divisi Human Capital (HC)"
+    },
+    {
+      "sasaran_kode": "F.3",
+      "peran": "Pendukung",
+      "unit": "Kepala Bagian Perencanaan dan Pengembangan HC"
+    },
+    {
+      "sasaran_kode": "F.3",
+      "peran": "Pendukung",
+      "unit": "Kepala Bagian Operasional HC"
+    },
+    {
+      "sasaran_kode": "KS.1",
+      "peran": "Utama",
+      "unit": "Kepala Divisi Human Capital (HC)"
+    },
+    {
+      "sasaran_kode": "KS.1",
+      "peran": "Pendukung",
+      "unit": "Kepala Bagian Perencanaan dan Pengembangan HC"
+    },
+    {
+      "sasaran_kode": "KS.1",
+      "peran": "Pendukung",
+      "unit": "Kepala Bagian Operasional HC"
+    },
+    {
+      "sasaran_kode": "KS.2",
+      "peran": "Utama",
+      "unit": "Kepala Divisi Human Capital (HC)"
+    },
+    {
+      "sasaran_kode": "KS.2",
+      "peran": "Pendukung",
+      "unit": "Kepala Bagian Perencanaan dan Pengembangan HC"
+    },
+    {
+      "sasaran_kode": "KS.3",
+      "peran": "Utama",
+      "unit": "Kepala Divisi Human Capital (HC)"
+    },
+    {
+      "sasaran_kode": "KS.3",
+      "peran": "Pendukung",
+      "unit": "Kepala Bagian Perencanaan dan Pengembangan HC"
+    },
+    {
+      "sasaran_kode": "KS.4",
+      "peran": "Utama",
+      "unit": "Kepala Divisi Human Capital (HC)"
+    },
+    {
+      "sasaran_kode": "KS.4",
+      "peran": "Pendukung",
+      "unit": "Kepala Divisi Perencanaan Strategis"
+    },
+    {
+      "sasaran_kode": "KS.4",
+      "peran": "Pendukung",
+      "unit": "Kepala Bagian Perencanaan dan Pengembangan HC"
+    },
+    {
+      "sasaran_kode": "KS.4",
+      "peran": "Pendukung",
+      "unit": "Kepala Bagian Operasional HC"
+    },
+    {
+      "sasaran_kode": "KS.5",
+      "peran": "Utama",
+      "unit": "Kepala Divisi Human Capital (HC)"
+    },
+    {
+      "sasaran_kode": "KS.5",
+      "peran": "Pendukung",
+      "unit": "Kepala Bagian Operasional HC"
+    },
+    {
+      "sasaran_kode": "KS.5",
+      "peran": "Pendukung",
+      "unit": "Kepala Bagian Perencanaan dan Pengembangan HC"
+    },
+    {
+      "sasaran_kode": "PBI.1.a.1",
+      "peran": "Utama",
+      "unit": "Kepala Divisi Human Capital"
+    },
+    {
+      "sasaran_kode": "PBI.1.a.1",
+      "peran": "Pendukung",
+      "unit": "Kepala Divisi Perencanaan Strategis"
+    },
+    {
+      "sasaran_kode": "PBI.1.a.1",
+      "peran": "Pendukung",
+      "unit": "Kepala Bagian Perencanaan dan Pengembangan HC"
+    },
+    {
+      "sasaran_kode": "PBI.1.a.1",
+      "peran": "Pendukung",
+      "unit": "Kepala Bagian Operasional HC"
+    },
+    {
+      "sasaran_kode": "PBI.1.a.2",
+      "peran": "Utama",
+      "unit": "Kepala Divisi Human Capital"
+    },
+    {
+      "sasaran_kode": "PBI.1.a.2",
+      "peran": "Pendukung",
+      "unit": "Kepala Bagian Perencanaan dan Pengembangan HC"
+    },
+    {
+      "sasaran_kode": "PBI.1.a.2",
+      "peran": "Pendukung",
+      "unit": "Kepala Bagian Operasional HC"
+    },
+    {
+      "sasaran_kode": "PBI.1.a.3",
+      "peran": "Utama",
+      "unit": "Kepala Divisi Human Capital"
+    },
+    {
+      "sasaran_kode": "PBI.1.a.3",
+      "peran": "Pendukung",
+      "unit": "Kepala Bagian Perencanaan dan Pengembangan HC"
+    },
+    {
+      "sasaran_kode": "PBI.1.a.4",
+      "peran": "Utama",
+      "unit": "Kepala Divisi Human Capital"
+    },
+    {
+      "sasaran_kode": "PBI.1.a.4",
+      "peran": "Pendukung",
+      "unit": "Kepala Bagian Perencanaan dan Pengembangan HC"
+    },
+    {
+      "sasaran_kode": "PBI.1.a.5",
+      "peran": "Utama",
+      "unit": "Kepala Divisi Human Capital"
+    },
+    {
+      "sasaran_kode": "PBI.1.a.5",
+      "peran": "Pendukung",
+      "unit": "Kepala Bagian Perencanaan dan Pengembangan HC"
+    },
+    {
+      "sasaran_kode": "PBI.1.a.6",
+      "peran": "Utama",
+      "unit": "Kepala Divisi Human Capital"
+    },
+    {
+      "sasaran_kode": "PBI.1.a.6",
+      "peran": "Pendukung",
+      "unit": "Kepala Bagian Operasional HC"
+    },
+    {
+      "sasaran_kode": "PBI.1.a.6",
+      "peran": "Pendukung",
+      "unit": "Kepala Bagian Perencanaan dan Pengembangan HC"
+    },
+    {
+      "sasaran_kode": "PBI.1.b.1",
+      "peran": "Pendukung",
+      "unit": "Kepala Divisi Human Capital"
+    },
+    {
+      "sasaran_kode": "PBI.1.b.1",
+      "peran": "Pendukung",
+      "unit": "Kepala Bagian Perencanaan dan Pengembangan HC"
+    },
+    {
+      "sasaran_kode": "PBI.1.b.2",
+      "peran": "Utama",
+      "unit": "Kepala Divisi Human Capital"
+    },
+    {
+      "sasaran_kode": "PBI.1.b.2",
+      "peran": "Pendukung",
+      "unit": "Kepala Bagian Perencanaan dan Pengembangan HC"
+    },
+    {
+      "sasaran_kode": "PBI.1.b.3",
+      "peran": "Utama",
+      "unit": "Kepala Divisi Human Capital"
+    },
+    {
+      "sasaran_kode": "PBI.1.b.3",
+      "peran": "Pendukung",
+      "unit": "Kepala Bagian Operasional HC"
+    },
+    {
+      "sasaran_kode": "PBI.1.b.3",
+      "peran": "Pendukung",
+      "unit": "Kepala Bagian Perencanaan dan Pengembangan HC"
+    },
+    {
+      "sasaran_kode": "PBI.1.b.4",
+      "peran": "Utama",
+      "unit": "Kepala Divisi Human Capital"
+    },
+    {
+      "sasaran_kode": "PBI.1.b.4",
+      "peran": "Pendukung",
+      "unit": "Kepala Bagian Operasional HC"
+    },
+    {
+      "sasaran_kode": "PBI.1.b.5",
+      "peran": "Utama",
+      "unit": "Kepala Divisi Human Capital"
+    },
+    {
+      "sasaran_kode": "PBI.1.b.5",
+      "peran": "Pendukung",
+      "unit": "Kepala Divisi Teknologi Informasi"
+    },
+    {
+      "sasaran_kode": "PBI.1.b.5",
+      "peran": "Pendukung",
+      "unit": "Kepala Bagian Operasional HC"
+    },
+    {
+      "sasaran_kode": "PP.1",
+      "peran": "Utama",
+      "unit": "Kepala Divisi Human Capital"
+    },
+    {
+      "sasaran_kode": "PP.1",
+      "peran": "Pendukung",
+      "unit": "Kepala Bagian Perencanaan dan Pengembangan HC"
+    },
+    {
+      "sasaran_kode": "PP.1",
+      "peran": "Pendukung",
+      "unit": "Kepala Bagian Operasional HC"
+    },
+    {
+      "sasaran_kode": "PP.2",
+      "peran": "Utama",
+      "unit": "Kepala Divisi Human Capital"
+    },
+    {
+      "sasaran_kode": "PP.2",
+      "peran": "Pendukung",
+      "unit": "Kepala Bagian Perencanaan dan Pengembangan HC"
+    },
+    {
+      "sasaran_kode": "PP.2",
+      "peran": "Pendukung",
+      "unit": "Kepala Bagian Operasional HC"
+    },
+    {
+      "sasaran_kode": "PP.3",
+      "peran": "Utama",
+      "unit": "Kepala Divisi Human Capital"
+    },
+    {
+      "sasaran_kode": "PP.3",
+      "peran": "Pendukung",
+      "unit": "Kepala Bagian Perencanaan dan Pengembangan HC"
+    },
+    {
+      "sasaran_kode": "PP.3",
+      "peran": "Pendukung",
+      "unit": "Kepala Bagian Operasional HC"
+    },
+    {
+      "sasaran_kode": "PP.4",
+      "peran": "Utama",
+      "unit": "Kepala Divisi Human Capital"
+    },
+    {
+      "sasaran_kode": "PP.4",
+      "peran": "Pendukung",
+      "unit": "Kepala Bagian Perencanaan dan Pengembangan HC"
+    },
+    {
+      "sasaran_kode": "PP.4",
+      "peran": "Pendukung",
+      "unit": "Kepala Bagian Operasional HC"
+    },
+    {
+      "sasaran_kode": "PP.5",
+      "peran": "Utama",
+      "unit": "Kepala Divisi Human Capital"
+    },
+    {
+      "sasaran_kode": "PP.5",
+      "peran": "Pendukung",
+      "unit": "Kepala Bagian Perencanaan dan Pengembangan HC"
+    },
+    {
+      "sasaran_kode": "PP.5",
+      "peran": "Pendukung",
+      "unit": "Kepala Bagian Operasional HC"
+    },
+    {
+      "sasaran_kode": "PP.6",
+      "peran": "Utama",
+      "unit": "Kepala Divisi Human Capital"
+    },
+    {
+      "sasaran_kode": "PP.6",
+      "peran": "Pendukung",
+      "unit": "Kepala Bagian Perencanaan dan Pengembangan HC"
+    },
+    {
+      "sasaran_kode": "PP.6",
+      "peran": "Pendukung",
+      "unit": "Kepala Bagian Operasional HC"
+    },
+    {
+      "sasaran_kode": "PP.7",
+      "peran": "Utama",
+      "unit": "Kepala Divisi Human Capital"
+    },
+    {
+      "sasaran_kode": "PP.7",
+      "peran": "Pendukung",
+      "unit": "Kepala Bagian Perencanaan dan Pengembangan HC"
+    },
+    {
+      "sasaran_kode": "PP.7",
+      "peran": "Pendukung",
+      "unit": "Kepala Bagian Operasional HC"
+    }
+  ]
+}

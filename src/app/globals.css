@@ -1,0 +1,212 @@
+@import "tailwindcss";
+
+/* ============================================================
+   Bank Jatim Group - HCSP theme
+   Brand: merah #e1121c, maroon #6b0a10, emas #f0b800
+   Grays: warm red-tinted family (single hue)
+   NB: variabel masih bernama --bb-green* demi kompatibilitas
+       utilitas (text-bbgreen, bg-bbgreen, dll), nilainya merah.
+   ============================================================ */
+:root {
+  --bb-green: #e1121c;
+  --bb-green-dark: #b00e16;
+  --bb-green-deep: #6b0a10;
+  --bb-green-light: #fcebec;
+  --bb-gold: #f0b800;
+  --bb-amber: #c97a1f;
+  --bb-red: #d9343b;
+
+  /* warm red-tinted neutral scale */
+  --bb-ink: #1f1416;
+  --bb-muted: #6a5a5c;
+  --bb-faint: #9c8a8d;
+  --bb-bg: #f7f3f3;
+  --bb-card: #ffffff;
+  --bb-border: #ece2e3;
+  --bb-border-strong: #dccfd0;
+
+  /* tinted shadows (maroon hue, not pure black) */
+  --bb-shadow-sm: 0 1px 2px rgba(107, 10, 16, 0.05), 0 1px 3px rgba(107, 10, 16, 0.04);
+  --bb-shadow-md: 0 4px 14px -4px rgba(107, 10, 16, 0.12), 0 2px 6px -2px rgba(107, 10, 16, 0.07);
+  --bb-shadow-lg: 0 18px 40px -12px rgba(107, 10, 16, 0.22), 0 6px 16px -8px rgba(107, 10, 16, 0.12);
+
+  --background: var(--bb-bg);
+  --foreground: var(--bb-ink);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-bbgreen: var(--bb-green);
+  --color-bbgreen-dark: var(--bb-green-dark);
+  --color-bbgreen-deep: var(--bb-green-deep);
+  --color-bbgreen-light: var(--bb-green-light);
+  --color-bbgold: var(--bb-gold);
+  --color-bbamber: var(--bb-amber);
+  --color-bbred: var(--bb-red);
+  --color-bbink: var(--bb-ink);
+  --color-bbmuted: var(--bb-muted);
+  --color-bbfaint: var(--bb-faint);
+  --color-bbcard: var(--bb-card);
+  --color-bbborder: var(--bb-border);
+  --font-sans: var(--font-geist-sans);
+  --font-display: var(--font-outfit), var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+* {
+  border-color: var(--bb-border);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  /* ambient gradient brand lembut di latar konten (mengikuti bank aktif) */
+  background:
+    radial-gradient(1100px 520px at 104% -8%, color-mix(in srgb, var(--bb-green) 9%, transparent), transparent 60%),
+    radial-gradient(900px 640px at -8% 106%, color-mix(in srgb, var(--bb-green) 7%, transparent), transparent 58%),
+    var(--background);
+  background-attachment: fixed;
+  color: var(--foreground);
+  font-family: var(--font-sans), system-ui, -apple-system, Arial, sans-serif;
+  font-variant-numeric: tabular-nums;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* Hormati area aman perangkat berponi (viewport-fit: cover). 0 di perangkat biasa. */
+@supports (padding: env(safe-area-inset-left)) {
+  body {
+    padding-left: env(safe-area-inset-left);
+    padding-right: env(safe-area-inset-right);
+  }
+}
+
+/* background-attachment: fixed memicu repaint janky di iOS Safari saat scroll. */
+@media (max-width: 768px) {
+  body { background-attachment: scroll; }
+}
+
+::selection {
+  background: color-mix(in srgb, var(--bb-green) 22%, transparent);
+  color: var(--bb-green-deep);
+}
+
+/* ---- typography ---- */
+.font-display {
+  font-family: var(--font-display);
+  letter-spacing: -0.02em;
+}
+h1, h2, h3 {
+  text-wrap: balance;
+}
+p {
+  text-wrap: pretty;
+}
+
+/* ---- surfaces ---- */
+.bb-card {
+  background: var(--bb-card);
+  border: 1px solid var(--bb-border);
+  border-radius: 1rem;
+  box-shadow: var(--bb-shadow-sm);
+}
+.bb-card-hover {
+  transition: box-shadow 0.25s ease, transform 0.25s ease, border-color 0.25s ease;
+}
+.bb-card-hover:hover {
+  box-shadow: var(--bb-shadow-md);
+  border-color: var(--bb-border-strong);
+  transform: translateY(-2px);
+}
+
+/* sidebar: layered radial mesh over brand red */
+.bb-sidebar {
+  background:
+    radial-gradient(120% 80% at 0% 0%, rgba(240, 184, 0, 0.18) 0%, transparent 42%),
+    radial-gradient(100% 60% at 100% 100%, rgba(255, 255, 255, 0.10) 0%, transparent 50%),
+    linear-gradient(165deg, var(--bb-green) 0%, var(--bb-green-dark) 55%, var(--bb-green-deep) 100%);
+}
+
+/* grain overlay - breaks digital flatness */
+.bb-grain {
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  opacity: 0.025;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* ---- interactivity ---- */
+:where(a, button):focus-visible {
+  outline: 2px solid var(--bb-green);
+  outline-offset: 2px;
+  border-radius: 0.375rem;
+}
+.bb-press {
+  transition: transform 0.12s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+}
+.bb-press:active {
+  transform: scale(0.97);
+}
+
+/* ---- skeleton shimmer ---- */
+.bb-skeleton {
+  background: linear-gradient(100deg, #f3edee 30%, #e8dedf 50%, #f3edee 70%);
+  background-size: 200% 100%;
+  animation: bb-shimmer 1.4s ease-in-out infinite;
+  border-radius: 0.5rem;
+}
+@keyframes bb-shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+/* ---- staggered entry ---- */
+@keyframes bb-rise {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.bb-rise {
+  animation: bb-rise 0.5s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+/* ---- scroll-driven reveal (CSS only, progressive enhancement) ---- */
+/* Default: fully visible. Only hide + animate where the browser supports
+   scroll-driven timelines AND the user has not requested reduced motion. */
+@keyframes bb-enter {
+  from { opacity: 0; transform: translateY(22px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .bb-reveal {
+      animation: bb-enter linear both;
+      animation-timeline: view();
+      animation-range: entry 0% cover 26%;
+    }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after { animation-duration: 0.001ms !important; transition-duration: 0.001ms !important; }
+  html { scroll-behavior: auto; }
+}
+
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-thumb { background: #cad9d1; border-radius: 999px; }
+::-webkit-scrollbar-thumb:hover { background: #b2c7bc; }
+
+/* ---- print / board pack ---- */
+@media print {
+  .bb-sidebar, .bb-grain, .no-print, header.md\:hidden { display: none !important; }
+  main { padding: 0 !important; }
+  body { background: #fff !important; }
+  .bb-card { box-shadow: none !important; border: 1px solid #d4ddd8 !important; break-inside: avoid; }
+  .print-break { break-before: page; }
+  a { color: inherit !important; text-decoration: none !important; }
+  @page { margin: 14mm; size: A4; }
+}
