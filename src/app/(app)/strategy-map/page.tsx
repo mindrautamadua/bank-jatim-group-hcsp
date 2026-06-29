@@ -1,6 +1,5 @@
 import Link from 'next/link'
-import { getPerspektif, getAllSasaran, getAllPIC, getIKCountByKode, getProgressByKode } from '@/lib/queries'
-import { getProgramDetailMap } from '@/lib/program-detail'
+import { getPerspektif, getAllSasaran, getAllPIC, getIKCountByKode, getProgressByKode, getKeyProgramCountByKode } from '@/lib/queries'
 import { PageHeader } from '@/components/ui'
 import { ListChecks, Crown, Users2, Gauge } from 'lucide-react'
 
@@ -14,8 +13,8 @@ const perspektifMeta: Record<string, { label: string; sub: string; bar: string }
 }
 
 export default async function StrategyMap() {
-  const [persp, sasaran, allPic, ikCount, progressByKode, pdMap] = await Promise.all([
-    getPerspektif(), getAllSasaran(), getAllPIC(), getIKCountByKode(), getProgressByKode(), getProgramDetailMap(),
+  const [persp, sasaran, allPic, ikCount, progressByKode, keyProgramCountByKode] = await Promise.all([
+    getPerspektif(), getAllSasaran(), getAllPIC(), getIKCountByKode(), getProgressByKode(), getKeyProgramCountByKode(),
   ])
 
   // Overall progress seluruh Strategy Map = rata-rata overall progress semua sasaran.
@@ -81,7 +80,7 @@ export default async function StrategyMap() {
                   </div>
                   <div className="grid sm:grid-cols-2 xl:grid-cols-3 gap-3">
                     {items.map((s) => {
-                      const keyProgramCount = pdMap[s.kode]?.kegiatan.length ?? 0
+                      const keyProgramCount = keyProgramCountByKode.get(s.kode) ?? 0
                       const ikJumlah = ikCount.get(s.kode) ?? 0
                       const pic = picByKode.get(s.kode) ?? { utama: [], pendukung: [] }
                       const overallProgress = progressByKode.get(s.kode) ?? 0

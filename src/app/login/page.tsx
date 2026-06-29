@@ -39,7 +39,7 @@ export default async function LoginPage({
           </p>
           <ul className="mt-8 space-y-3 text-sm text-white/85">
             {[
-              { icon: FolderKanban, t: '26 program strategis terpantau' },
+              { icon: FolderKanban, t: 'Program strategis terpantau' },
               { icon: Gauge, t: 'Kematangan 13 domain HCM' },
               { icon: Network, t: 'Balanced Scorecard 4 perspektif' },
             ].map(({ icon: Icon, t }) => (

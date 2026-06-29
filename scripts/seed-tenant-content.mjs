@@ -102,12 +102,16 @@ export async function seedTenantContent(client, schema, content) {
       }
     }
 
-    // Kegiatan (key program) per sasaran
+    // Kegiatan (key program) per sasaran.
+    // urutan WAJIB 0-based: dipakai sebagai indeks array kegiatan di file
+    // program-detail.<bank>.json (gantt: detail.kegiatan[urutan]; halaman detail:
+    // progressByUrutan.get(arrayIndex)). Abaikan g.urutan, pakai indeks jalan 0-based
+    // per kode sesuai urutan kemunculan di content (selaras konvensi bank-bali).
     let kCount = 0
     const kegUrutByKode = {}
     for (const g of kegiatan) {
       if (!sasId[g.sasaran_kode]) continue
-      const urut = g.urutan ?? (kegUrutByKode[g.sasaran_kode] = (kegUrutByKode[g.sasaran_kode] ?? 0) + 1)
+      const urut = (kegUrutByKode[g.sasaran_kode] = (kegUrutByKode[g.sasaran_kode] ?? -1) + 1)
       await client.query(
         `INSERT INTO kegiatan (sasaran_kode, urutan, program) VALUES ($1,$2,$3)
          ON CONFLICT (sasaran_kode, urutan) DO UPDATE SET program = EXCLUDED.program`,

@@ -80,6 +80,16 @@ export async function getIKCountByKode(): Promise<Map<string, number>> {
   return new Map(rows.map((r) => [r.kode, r.jumlah]))
 }
 
+// Jumlah Key Program (baris tabel kegiatan) per sasaran. Sumber kebenaran =
+// tabel kegiatan di schema tenant aktif (di-seed dari Blueprint/HCSP tiap bank),
+// bukan file program-detail.<bank>.json (yang hanya berisi konten blueprint kaya).
+export async function getKeyProgramCountByKode(): Promise<Map<string, number>> {
+  const rows = await query<{ kode: string; n: number }>(
+    `SELECT sasaran_kode AS kode, count(*)::int AS n FROM kegiatan GROUP BY sasaran_kode`
+  )
+  return new Map(rows.map((r) => [r.kode, r.n]))
+}
+
 // Overall progress per sasaran = rata-rata progress terverifikasi seluruh key
 // program (tabel kegiatan), selaras formula di halaman detail. 0 bila belum ada.
 export async function getProgressByKode(): Promise<Map<string, number>> {
