@@ -284,27 +284,31 @@ export interface MaturitySummary {
   byCluster: { cluster: string; baseline: number; target2030: number }[]
 }
 
-// Rollup resmi dari Blueprint (Bab 3 Roadmap & Lampiran 2):
-//   PBI.1   HCM keseluruhan : 2025 = 3,42 → target 3,50 / 3,73 / 3,87 / 3,94 / 3,96
-//   PBI.1.a HCM Strategic   : 2025 = 3,44 → target 3,53 / 3,77 / 3,93 / 4,00 / 4,00
-//   PBI.1.b HCM Services    : 2025 = 3,39 → target 3,46 / 3,67 / 3,81 / 3,86 / 3,92
-//   HCIS                    : 2025 = 2,50 → rollup rata-rata HCIS.1 & HCIS.2
-export const OFFICIAL_MATURITY = {
-  overall: { baseline: 3.42, traj: { 2025: 3.42, 2026: 3.50, 2027: 3.73, 2028: 3.87, 2029: 3.94, 2030: 3.96 } },
-  Strategic: { baseline: 3.44, target2030: 4.0 },
-  Services: { baseline: 3.39, target2030: 3.92 },
-  HCIS: { baseline: 2.5, target2030: 3.5 },
-} as const
-
+// Rollup kematangan dihitung dari DATABASE per tenant (maturity_domain +
+// maturity_target). Baseline = rata-rata baseline2025 antar domain; target 2030
+// = rata-rata target_itk tahun 2030 (domain tanpa target dianggap tetap di
+// baseline-nya agar sebanding). overall = rata-rata seluruh domain, per cluster
+// = rata-rata domain dalam cluster.
 export async function getMaturitySummary(): Promise<MaturitySummary> {
+  const rows = await query<{ cluster: string | null; base: string | null; tgt: string | null }>(`
+    SELECT d.cluster,
+           round(avg(d.baseline2025)::numeric, 2) AS base,
+           round(avg(COALESCE(t30.target_itk, d.baseline2025))::numeric, 2) AS tgt
+    FROM maturity_domain d
+    LEFT JOIN maturity_target t30 ON t30.domain_id = d.id AND t30.tahun = 2030
+    GROUP BY GROUPING SETS ((d.cluster), ())
+  `)
+  const num = (v: string | null) => (v === null ? 0 : Number(v))
+  const order: Record<string, number> = { Strategic: 0, Services: 1, HCIS: 2 }
+  const overall = rows.find((r) => r.cluster === null)
+  const byCluster = rows
+    .filter((r) => r.cluster !== null)
+    .sort((a, b) => (order[a.cluster!] ?? 9) - (order[b.cluster!] ?? 9))
+    .map((r) => ({ cluster: r.cluster as string, baseline: num(r.base), target2030: num(r.tgt) }))
   return {
-    baselineOverall: OFFICIAL_MATURITY.overall.baseline,
-    target2030Overall: OFFICIAL_MATURITY.overall.traj[2030],
-    byCluster: [
-      { cluster: 'Strategic', baseline: OFFICIAL_MATURITY.Strategic.baseline, target2030: OFFICIAL_MATURITY.Strategic.target2030 },
-      { cluster: 'Services', baseline: OFFICIAL_MATURITY.Services.baseline, target2030: OFFICIAL_MATURITY.Services.target2030 },
-      { cluster: 'HCIS', baseline: OFFICIAL_MATURITY.HCIS.baseline, target2030: OFFICIAL_MATURITY.HCIS.target2030 },
-    ],
+    baselineOverall: num(overall?.base ?? null),
+    target2030Overall: num(overall?.tgt ?? null),
+    byCluster,
   }
 }
 
@@ -467,22 +471,32 @@ export interface MaturityTrajPoint {
   realisasi: number | null
 }
 
-// Trajektori kematangan HCM keseluruhan: target resmi (PBI.1) vs realisasi (rata-rata domain terisi).
+// Trajektori kematangan HCM keseluruhan (dari DB per tenant): target = rata-rata
+// target_itk antar domain per tahun; realisasi = rata-rata realisasi domain terisi.
+// 2025 = baseline asesmen (rata-rata baseline2025).
 export async function getMaturityTrajectory(): Promise<MaturityTrajPoint[]> {
-  const rows = await query<{ tahun: number; realisasi: string | null }>(`
-    SELECT tahun, round(avg(realisasi)::numeric, 2) AS realisasi
+  const [baseRow] = await query<{ base: string | null }>(
+    `SELECT round(avg(baseline2025)::numeric, 2) AS base FROM maturity_domain`
+  )
+  const rows = await query<{ tahun: number; target: string | null; realisasi: string | null }>(`
+    SELECT tahun,
+           round(avg(target_itk)::numeric, 2) AS target,
+           round(avg(realisasi) FILTER (WHERE realisasi IS NOT NULL)::numeric, 2) AS realisasi
     FROM maturity_target
-    WHERE realisasi IS NOT NULL
     GROUP BY tahun
   `)
+  const tgt = new Map<number, number>()
   const real = new Map<number, number>()
-  for (const r of rows) if (r.realisasi !== null) real.set(Number(r.tahun), Number(r.realisasi))
+  for (const r of rows) {
+    if (r.target !== null) tgt.set(Number(r.tahun), Number(r.target))
+    if (r.realisasi !== null) real.set(Number(r.tahun), Number(r.realisasi))
+  }
+  const base = baseRow?.base === null || baseRow?.base === undefined ? null : Number(baseRow.base)
   const years = [2025, 2026, 2027, 2028, 2029, 2030] as const
   return years.map((y) => ({
     tahun: y,
-    target: OFFICIAL_MATURITY.overall.traj[y],
-    // 2025 aktual = baseline asesmen resmi (3,42); tahun lain = rata-rata realisasi domain yang terisi
-    realisasi: y === 2025 ? OFFICIAL_MATURITY.overall.baseline : real.has(y) ? real.get(y)! : null,
+    target: y === 2025 ? base : tgt.has(y) ? tgt.get(y)! : null,
+    realisasi: y === 2025 ? base : real.has(y) ? real.get(y)! : null,
   }))
 }
 

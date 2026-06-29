@@ -11,7 +11,9 @@
     "db:seed:users": "node scripts/seed-users.mjs",
     "db:seed:lampung": "node scripts/seed-lampung.mjs",
     "db:seed:sultra": "node scripts/seed-sultra.mjs",
-    "db:setup": "npm run db:init && npm run db:seed:users && npm run db:seed:lampung && npm run db:seed:sultra"
+    "db:seed:pic-users": "node scripts/seed-pic-users.mjs",
+    "db:setup": "npm run db:init && npm run db:seed:users && npm run db:seed:lampung && npm run db:seed:sultra",
+    "audit": "node scripts/audit.mjs"
   },
   "dependencies": {
     "@aws-sdk/client-s3": "^3.1075.0",

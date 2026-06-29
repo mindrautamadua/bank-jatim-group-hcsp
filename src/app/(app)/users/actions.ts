@@ -6,7 +6,7 @@ import { getSession } from '@/lib/auth'
 import { query, publicQuery, publicTransaction } from '@/lib/db'
 import { ROLES } from '@/lib/users-constants'
 import { UNITS } from '@/lib/kegiatan-constants'
-import { countActiveAdmins } from '@/lib/users'
+import { countActiveAdmins, getUserTenantId } from '@/lib/users'
 
 export interface UserState { error?: string; ok?: boolean }
 
@@ -15,6 +15,16 @@ async function requireAdmin() {
   if (!user) return { error: 'Sesi berakhir. Silakan masuk kembali.' as const }
   if (user.role !== 'admin') return { error: 'Hanya Administrator yang dapat mengelola pengguna.' as const }
   return { user }
+}
+
+type AdminUser = { isGroup: boolean; homeTenantId: number | null }
+// Cakupan admin: null = semua bank (admin grup Bank Jatim), number = banknya sendiri.
+const adminScope = (u: AdminUser) => (u.isGroup ? null : u.homeTenantId)
+// Admin bank hanya boleh mengelola akun di banknya; admin grup boleh semua.
+async function canManage(u: AdminUser, targetId: number): Promise<boolean> {
+  if (u.isGroup) return true
+  const t = await getUserTenantId(targetId)
+  return t !== undefined && t === u.homeTenantId
 }
 const clean = (v: FormDataEntryValue | null) => { const s = String(v ?? '').trim(); return s === '' ? null : s }
 const validRole = (r: string): boolean => (ROLES as readonly string[]).includes(r)
@@ -40,13 +50,22 @@ export async function createUserAction(_prev: UserState, fd: FormData): Promise<
   if (!validRole(role)) return { error: 'Peran tidak valid.' }
   const unit = cleanUnit(fd.get('unit'))
   const isPimpinan = fd.get('is_pimpinan') != null && !!unit // pimpinan hanya bermakna bila punya unit
+  // Bank pemilik akun: admin bank -> banknya sendiri; admin grup -> pilihan form (kosong = grup).
+  let tenantId: number | null
+  if (g.user.isGroup) {
+    const raw = clean(fd.get('tenant_id'))
+    const n = raw ? Number(raw) : NaN
+    tenantId = Number.isInteger(n) ? n : null
+  } else {
+    tenantId = g.user.homeTenantId
+  }
   try {
     const hash = await bcrypt.hash(password, 10)
     await publicTransaction(async (q) => {
-      // Satu pimpinan per unit: lepas penanda dari user lain di unit yang sama.
-      if (isPimpinan && unit) await q('UPDATE app_user SET is_pimpinan=false WHERE unit=$1 AND is_pimpinan', [unit])
-      await q('INSERT INTO app_user (email, nama, jabatan, unit, role, password_hash, is_pimpinan) VALUES ($1,$2,$3,$4,$5,$6,$7)',
-        [email, nama, clean(fd.get('jabatan')), unit, role, hash, isPimpinan])
+      // Satu pimpinan per unit dalam bank yang sama: lepas penanda dari user lain.
+      if (isPimpinan && unit) await q('UPDATE app_user SET is_pimpinan=false WHERE unit=$1 AND is_pimpinan AND tenant_id IS NOT DISTINCT FROM $2', [unit, tenantId])
+      await q('INSERT INTO app_user (email, nama, jabatan, unit, role, password_hash, is_pimpinan, tenant_id) VALUES ($1,$2,$3,$4,$5,$6,$7,$8)',
+        [email, nama, clean(fd.get('jabatan')), unit, role, hash, isPimpinan, tenantId])
     })
     await log(`Membuat pengguna: ${email} (${role})`, g.user.id, g.user.nama)
   } catch (e) {
@@ -61,19 +80,20 @@ export async function createUserAction(_prev: UserState, fd: FormData): Promise<
 
 export async function updateUserAction(id: number, _prev: UserState, fd: FormData): Promise<UserState> {
   const g = await requireAdmin(); if ('error' in g) return g
+  if (!(await canManage(g.user, id))) return { error: 'Anda hanya dapat mengelola akun di bank Anda.' }
   const nama = clean(fd.get('nama'))
   const role = String(fd.get('role') ?? '')
   if (!nama) return { error: 'Nama wajib diisi.' }
   if (!validRole(role)) return { error: 'Peran tidak valid.' }
-  // Jangan biarkan admin terakhir menurunkan perannya sendiri.
-  if (id === g.user.id && role !== 'admin' && (await countActiveAdmins()) <= 1) {
+  // Jangan biarkan admin terakhir (di cakupannya) menurunkan perannya sendiri.
+  if (id === g.user.id && role !== 'admin' && (await countActiveAdmins(adminScope(g.user))) <= 1) {
     return { error: 'Tidak dapat menurunkan peran: Anda administrator aktif terakhir.' }
   }
   const unit = cleanUnit(fd.get('unit'))
   const isPimpinan = fd.get('is_pimpinan') != null && !!unit // pimpinan hanya bermakna bila punya unit
   await publicTransaction(async (q) => {
-    // Satu pimpinan per unit: lepas penanda dari user lain di unit yang sama.
-    if (isPimpinan && unit) await q('UPDATE app_user SET is_pimpinan=false WHERE unit=$1 AND is_pimpinan AND id<>$2', [unit, id])
+    // Satu pimpinan per unit dalam bank yang sama: lepas penanda dari user lain.
+    if (isPimpinan && unit) await q('UPDATE app_user SET is_pimpinan=false WHERE unit=$1 AND is_pimpinan AND id<>$2 AND tenant_id IS NOT DISTINCT FROM (SELECT tenant_id FROM app_user WHERE id=$2)', [unit, id])
     await q('UPDATE app_user SET nama=$1, jabatan=$2, unit=$3, role=$4, is_pimpinan=$5 WHERE id=$6',
       [nama, clean(fd.get('jabatan')), unit, role, isPimpinan, id])
   })
@@ -84,6 +104,7 @@ export async function updateUserAction(id: number, _prev: UserState, fd: FormDat
 
 export async function resetPasswordAction(id: number, _prev: UserState, fd: FormData): Promise<UserState> {
   const g = await requireAdmin(); if ('error' in g) return g
+  if (!(await canManage(g.user, id))) return { error: 'Anda hanya dapat mengelola akun di bank Anda.' }
   const password = String(fd.get('password') ?? '')
   if (password.length < 8) return { error: 'Kata sandi minimal 8 karakter.' }
   const hash = await bcrypt.hash(password, 10)
@@ -96,6 +117,7 @@ export async function resetPasswordAction(id: number, _prev: UserState, fd: Form
 export async function toggleActiveAction(id: number): Promise<void> {
   const g = await requireAdmin(); if ('error' in g) return
   if (id === g.user.id) return // tidak boleh menonaktifkan diri sendiri
+  if (!(await canManage(g.user, id))) return // hanya akun di banknya
   await publicQuery('UPDATE app_user SET is_active = NOT is_active WHERE id=$1', [id])
   await log(`Mengubah status aktif pengguna #${id}`, g.user.id, g.user.nama)
   revalidatePath('/users')
@@ -104,6 +126,7 @@ export async function toggleActiveAction(id: number): Promise<void> {
 export async function deleteUserAction(id: number): Promise<void> {
   const g = await requireAdmin(); if ('error' in g) return
   if (id === g.user.id) return // tidak boleh menghapus diri sendiri
+  if (!(await canManage(g.user, id))) return // hanya akun di banknya
   await publicQuery('DELETE FROM app_user WHERE id=$1', [id])
   await log(`Menghapus pengguna #${id}`, g.user.id, g.user.nama)
   revalidatePath('/users')

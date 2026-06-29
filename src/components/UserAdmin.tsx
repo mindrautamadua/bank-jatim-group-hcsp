@@ -7,12 +7,12 @@ import {
 } from '@/app/(app)/users/actions'
 import { ROLES, roleLabel, roleBadge } from '@/lib/users-constants'
 import { UNITS } from '@/lib/kegiatan-constants'
-import type { AppUser } from '@/lib/users'
+import type { AppUser, TenantRef } from '@/lib/users'
 import { UserPlus, Pencil, KeyRound, Power, Trash2, X, Check } from 'lucide-react'
 
 const inp = 'rounded-lg border border-bbborder bg-white px-3 py-2 text-sm text-bbink outline-none transition-colors placeholder:text-bbfaint focus:border-bbgreen focus:ring-2 focus:ring-bbgreen/20'
 
-export default function UserAdmin({ users, currentUserId }: { users: AppUser[]; currentUserId: number }) {
+export default function UserAdmin({ users, currentUserId, isGroup = false, tenants = [] }: { users: AppUser[]; currentUserId: number; isGroup?: boolean; tenants?: TenantRef[] }) {
   const router = useRouter()
   const [pending, start] = useTransition()
   const [showCreate, setShowCreate] = useState(false)
@@ -31,7 +31,7 @@ export default function UserAdmin({ users, currentUserId }: { users: AppUser[]; 
         )}
       </div>
 
-      {showCreate && <CreateForm onDone={() => setShowCreate(false)} />}
+      {showCreate && <CreateForm onDone={() => setShowCreate(false)} isGroup={isGroup} tenants={tenants} />}
 
       <div className="bb-card overflow-hidden p-0">
         <div className="overflow-x-auto">
@@ -47,7 +47,7 @@ export default function UserAdmin({ users, currentUserId }: { users: AppUser[]; 
           </thead>
           <tbody>
             {users.map((u) => (
-              <RowGroup key={u.id} u={u} isSelf={u.id === currentUserId}
+              <RowGroup key={u.id} u={u} isSelf={u.id === currentUserId} showBank={isGroup}
                 editing={editingId === u.id} resetting={resettingId === u.id}
                 onEdit={() => { setEditingId(editingId === u.id ? null : u.id); setResettingId(null) }}
                 onReset={() => { setResettingId(resettingId === u.id ? null : u.id); setEditingId(null) }}
@@ -63,7 +63,7 @@ export default function UserAdmin({ users, currentUserId }: { users: AppUser[]; 
   )
 }
 
-function CreateForm({ onDone }: { onDone: () => void }) {
+function CreateForm({ onDone, isGroup, tenants }: { onDone: () => void; isGroup: boolean; tenants: TenantRef[] }) {
   const [state, action, pending] = useActionState<UserState, FormData>(createUserAction, {})
   useEffect(() => { if (state.ok) onDone() }, [state.ok, onDone])
   return (
@@ -73,6 +73,14 @@ function CreateForm({ onDone }: { onDone: () => void }) {
         <button onClick={onDone} className="bb-press text-bbmuted hover:text-bbink" aria-label="Tutup"><X size={18} /></button>
       </div>
       <form action={action} className="grid gap-3 sm:grid-cols-2">
+        {isGroup && (
+          <label className="flex flex-col gap-1 sm:col-span-2"><span className="text-xs font-medium text-bbmuted">Bank</span>
+            <select name="tenant_id" defaultValue="" className={inp}>
+              <option value="">Grup (semua bank)</option>
+              {tenants.map((t) => <option key={t.id} value={t.id}>{t.nama}</option>)}
+            </select>
+          </label>
+        )}
         <label className="flex flex-col gap-1"><span className="text-xs font-medium text-bbmuted">Nama</span><input name="nama" required className={inp} /></label>
         <label className="flex flex-col gap-1"><span className="text-xs font-medium text-bbmuted">Email</span><input name="email" type="email" required placeholder="nama@jatimgroup.co.id" className={inp} /></label>
         <label className="flex flex-col gap-1"><span className="text-xs font-medium text-bbmuted">Jabatan</span><input name="jabatan" className={inp} /></label>
@@ -90,8 +98,8 @@ function CreateForm({ onDone }: { onDone: () => void }) {
   )
 }
 
-function RowGroup({ u, isSelf, editing, resetting, onEdit, onReset, onClose, run, pending }: {
-  u: AppUser; isSelf: boolean; editing: boolean; resetting: boolean
+function RowGroup({ u, isSelf, showBank, editing, resetting, onEdit, onReset, onClose, run, pending }: {
+  u: AppUser; isSelf: boolean; showBank: boolean; editing: boolean; resetting: boolean
   onEdit: () => void; onReset: () => void; onClose: () => void
   run: (fn: () => Promise<unknown>) => void; pending: boolean
 }) {
@@ -99,7 +107,14 @@ function RowGroup({ u, isSelf, editing, resetting, onEdit, onReset, onClose, run
     <>
       <tr className="border-b border-bbborder/60 last:border-0 hover:bg-bbgreen-light/15">
         <td className="px-4 py-3">
-          <div className="font-medium text-bbink">{u.nama} {isSelf && <span className="text-[11px] text-bbmuted">(Anda)</span>}</div>
+          <div className="font-medium text-bbink">
+            {u.nama} {isSelf && <span className="text-[11px] text-bbmuted">(Anda)</span>}
+            {showBank && (
+              <span className="ml-1.5 inline-flex items-center rounded bg-bbgreen-light/60 px-1.5 py-px text-[10.5px] font-semibold text-bbgreen-dark align-middle">
+                {u.tenant_nama ?? 'Grup'}
+              </span>
+            )}
+          </div>
           <div className="text-xs text-bbmuted">{u.email}{u.jabatan ? ` · ${u.jabatan}` : ''}</div>
           {u.unit && (
             <div className="mt-0.5 flex items-center gap-1.5 text-[11px] text-bbfaint">

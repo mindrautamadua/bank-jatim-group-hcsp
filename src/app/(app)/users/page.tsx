@@ -1,6 +1,6 @@
 import { redirect } from 'next/navigation'
 import { getSession } from '@/lib/auth'
-import { listUsers, getUserStats } from '@/lib/users'
+import { listUsers, getUserStats, listTenants } from '@/lib/users'
 import { roleBadge, roleLabel } from '@/lib/users-constants'
 import { PageHeader, StatCard } from '@/components/ui'
 import UserAdmin from '@/components/UserAdmin'
@@ -13,13 +13,21 @@ export default async function UsersPage() {
   if (!user) redirect('/login')
   if (user.role !== 'admin') redirect('/dashboard')
 
-  const [users, stats] = await Promise.all([listUsers(), getUserStats()])
+  // Admin grup (Bank Jatim) melihat semua bank; admin bank hanya banknya.
+  const scope = user.isGroup ? null : user.homeTenantId
+  const [users, stats, tenants] = await Promise.all([
+    listUsers(scope),
+    getUserStats(scope),
+    user.isGroup ? listTenants() : Promise.resolve([]),
+  ])
 
   return (
     <div className="max-w-6xl">
       <PageHeader
         title="Manajemen Pengguna"
-        subtitle="Kelola akun, peran, dan akses platform HCSP."
+        subtitle={user.isGroup
+          ? 'Kelola akun, peran, dan akses platform HCSP seluruh bank.'
+          : `Kelola akun, peran, dan akses platform HCSP ${user.activeNama}.`}
       />
 
       <div className="mb-6 grid grid-cols-2 gap-4 lg:grid-cols-4">
@@ -31,7 +39,7 @@ export default async function UsersPage() {
 
       <RoleLegend />
 
-      <UserAdmin users={users} currentUserId={user.id} />
+      <UserAdmin users={users} currentUserId={user.id} isGroup={user.isGroup} tenants={tenants} />
     </div>
   )
 }
