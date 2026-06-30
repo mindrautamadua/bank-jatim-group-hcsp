@@ -31,7 +31,11 @@ const pool =
   global._hcspPool ??
   new Pool({
     connectionString: process.env.DATABASE_URL,
-    max: isDev ? 8 : 6,
+    // Dev: satu server hidup terus → boleh banyak koneksi hangat.
+    // Prod (serverless): tiap instance hanya melayani sedikit request; jaga
+    // koneksi sedikit agar banyak instance tidak membanjiri server DB yang
+    // lambat membuka koneksi.
+    max: isDev ? 8 : 3,
     idleTimeoutMillis: isDev ? 0 : 30_000,
     keepAlive: true,
     keepAliveInitialDelayMillis: 5_000,
@@ -50,6 +54,9 @@ type TaggedClient = PoolClient & { __hcspPath?: string }
 // must use a transaction (see runTransaction); this no-ops there.
 async function ensurePath(client: TaggedClient, schema: string | null) {
   if (TX_POOLER) return
+  // schema null = akses global (auth/users). `public` selalu ada di search_path
+  // default, jadi tak perlu SET — hemat satu round trip di jalur login.
+  if (schema == null) return
   const want = pathFor(schema)
   if (client.__hcspPath !== want) {
     await client.query(`SET search_path TO ${want}`)
@@ -85,9 +92,13 @@ async function prewarm(target: number) {
     held.forEach((c) => c.release())
   }
 }
-if (!global._hcspWarmed) {
+// Hanya pra-panaskan di DEV (server hidup terus). Di serverless, pra-panas
+// per cold-start justru membuka banyak koneksi dan menahan request yang sedang
+// memicu cold-start itu (mis. login terasa lambat). Di prod, koneksi dibuat
+// sesuai kebutuhan saja.
+if (isDev && !global._hcspWarmed) {
   global._hcspWarmed = true
-  void prewarm(isDev ? 8 : 6)
+  void prewarm(8)
 }
 
 // ---- Tenant-scoped access (routes to the active tenant's schema) ----------
