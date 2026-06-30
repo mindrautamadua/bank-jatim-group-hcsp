@@ -43,6 +43,11 @@ const pool =
   })
 if (isDev) global._hcspPool = pool
 
+// Koneksi idle bisa diputus server/NAT saat instance serverless dibekukan.
+// Tangani error klien idle agar tidak meng-crash proses (pool akan membuat
+// koneksi baru saat dibutuhkan).
+pool.on('error', (e) => { console.error('[db] idle client error:', e.message) })
+
 function pathFor(schema: string | null): string {
   return schema ? `"${schema}", public` : 'public'
 }
